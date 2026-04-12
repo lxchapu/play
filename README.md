@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PLAY - 自嘲型游戏人格测试
 
-## Getting Started
+> P·L·A·Y Type Indicator · v0.1 — 一款基于矩阵评分与动态分支逻辑的赛博共鸣诊断系统，通过极致的自嘲与毒舌文案，引发玩家对游戏意义的深度自省。
 
-First, run the development server:
+## 诊断流程
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+测试分为五个阶段，模拟一次沉浸式的"赛博体检"：
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| 阶段    | 名称         | 说明                                                                     |
+| ------- | ------------ | ------------------------------------------------------------------------ |
+| Phase 0 | 传感器校准   | 前置题，确定玩家的主要生态位（单机/二游/竞技/杂食），作为全局文案过滤器  |
+| Phase 1 | 病灶扫描     | 混合加载通用题、生态位专属题及动态分支子题，文案保持阴阳怪气但透彻的调性 |
+| Phase 2 | 神经脉冲写入 | 模拟数据处理交互，展示实时映射日志                                       |
+| Phase 3 | 模糊地带探测 | 针对中性维度增加对比题，强迫用户暴露真实偏向                             |
+| Phase 4 | 终极诊断     | 输出包含代码、绰号、神经映射雷达图、社交兼容性及赛博处方                 |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 四大诊断维度
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+PLAY 通过四个维度对玩家行为进行交叉分析，大写字母代表主导极性：
 
-## Learn More
+| 维度  | 极性 A            | 极性 B            | 核心问题                         |
+| ----- | ----------------- | ----------------- | -------------------------------- |
+| P / p | 主动出击 (Play)   | 摸鱼养生 (play)   | 你是在玩游戏，还是游戏在玩你？   |
+| L / l | 逻辑分析 (Learn)  | 随性体验 (learn)  | 你用脑子玩游戏，还是用直觉？     |
+| A / a | 暴躁输出 (Attack) | 温和平静 (attack) | 你是团战发动机，还是气氛调解器？ |
+| Y / y | 社交连接 (Yield)  | 独狼行动 (yield)  | 你在游戏里找的是队友，还是孤独？ |
 
-To learn more about Next.js, take a look at the following resources:
+四字母组合 → 2⁴ = **16 种标准人格** + **4 种隐藏人格**。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 16 种标准人格一览
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| 代码 | 人格       | 英文梗 | 一句话                                                     |
+| ---- | ---------- | ------ | ---------------------------------------------------------- |
+| PLAY | 六边形分奴 | TRHD   | 「这就是分奴的嘴脸吗？是的，真香。」                       |
+| PLAy | 设定警察   | LORE   | 「原来如此，你这世界观设定它保熟吗？」                     |
+| PLaY | 全勤奖圣体 | WORK   | 「今天又是为了 60 原石出卖灵魂的一天。」                   |
+| PLay | 机制懂哥   | SAGE   | 「听哥一句劝，这关机制你没我带真过不去，来，听我指挥。」   |
+| PlAY | 赌狗战神   | GABL   | 「玄不救非，氪不改命，但下一发一定出金！」                 |
+| PlAy | 燃命厨     | HERO   | 「强不强是数值的事，帅不帅是灵魂的事。」                   |
+| PlaY | 电子宠物   | PETS   | 「除了运气，我一无所有；除了 666，我什么都不会。」         |
+| Play | 种田达人   | FARM   | 「土地不会骗人，但策划会。」                               |
+| pLAY | 炸鱼混子   | SMUR   | 「这就是降维打击的快乐吗？i 了 i 了。」                    |
+| pLAy | 云评测专家 | CLOU   | 「这策划，狗都不玩，我上去真比他行。」                     |
+| pLaY | 巨婴伸手党 | BABY   | 「大佬，这怎么做？大佬，救命！大佬，gkd！」                |
+| pLay | 考据大佬   | FACT   | 「根据碑文第 13 行的语法，这个 BOSS 应该是主角的亲二舅。」 |
+| plAY | 至尊压力怪 | TILT   | 「只要我喷得够快，队友的失误就追不上我。」                 |
+| plAy | 混乱乐子人 | FOIL   | 「别问我为什么杀你，问就是我看这棵树不爽。」               |
+| plaY | 白嫖怪     | BAIP   | 「白嫖的事，能算嫖吗？那是策划给家人的关怀。」             |
+| play | 暖暖党     | COZY   | 「输出没我事，只要我够美，队友就有动力。」                 |
 
-## Deploy on Vercel
+## 4 种隐藏人格
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+需特定作答组合触发（判定逻辑见 `src/logic/`）：
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| 代码 | 人格         | Emoji | 触发条件简述            |
+| ---- | ------------ | ----- | ----------------------- |
+| MAMA | 暖心男妈妈   | 🤱    | 辅助位偏好 + 高奉献倾向 |
+| ARCH | 基建狂魔     | 🏗️    | 生产至上 + 极低对抗     |
+| LIBY | 电子图书馆长 | 📚    | 喜加一成瘾 + 通关率极低 |
+| HACK | 赛博飞升者   | 👾    | 频繁选择干预规则的选项  |
+
+## 生态位分流
+
+Phase 0 的前置题将玩家分配至四个生态位，决定后续专属题库的加载：
+
+| 生态位         | 题目侧重                           | 关键词               |
+| -------------- | ---------------------------------- | -------------------- |
+| Solo (单机)    | 挑战难度、世界观细节、成就系统     | 苦难、景观、深度     |
+| Gacha (二游)   | 抽卡心态、角色情感连接、日常任务感 | 厨力、非欧、保底     |
+| PVP (竞技)     | 胜负执念、队友协作/冲突、版本强度  | 压力、上分、排位     |
+| Variety (杂食) | 买爆心态、尝试新事物的频率         | 喜加一、包工头、广度 |
+
+## 评分算法
+
+### 归一化得分
+
+$$Score_D = \frac{\sum Weight_{D}}{\text{Max Weight}_{D}} \times 100$$
+
+### 共鸣深度分级
+
+| 区间   | 等级            | 描述                                               |
+| ------ | --------------- | -------------------------------------------------- |
+| 50-70  | 轻度映射 (Mild) | 游戏是你生活的调味剂，你玩得游刃有余。             |
+| 71-90  | 深度共鸣 (Deep) | 游戏已成为你的第二现实，你在这里投射了真实的自我。 |
+| 91-100 | 灵魂链接 (Soul) | 这里的代码比现实的砖块更懂你。                     |
+
+### 动态分支
+
+部分选项会触发子题追问，形成"算法正在审视你"的追问感。触发时弹出"深度脉冲检测"窗口，子题立即插入下一顺位。
+
+## 免责声明
+
+本测试仅供娱乐，未经临床验证。所有诊断仅在本地完成，不上传任何个人数据。
+
+请勿用于群嘲、相亲、求职或发律师函。
+
+## 致谢
+
+灵感来源于 [FWTI](https://github.com/Innei/FWTI) — 感谢 [Innei](https://github.com/Innei) 提供的创意启发。
+
+## License
+
+[MIT](./LICENSE)
