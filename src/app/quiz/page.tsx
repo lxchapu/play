@@ -5,6 +5,7 @@
 
 import { ArrowRight, Loader2 } from "lucide-react";
 import { motion } from "motion/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { META_QUESTION } from "@/data/questions";
@@ -85,9 +86,9 @@ export default function QuizPage() {
             <div className="w-5.5 h-5.5 rounded-md bg-(--color-brand) relative">
               <div className="absolute inset-1.5 rounded-xs bg-white" />
             </div>
-            <span className="font-title text-lg font-bold text-text-dark tracking-wide">
+            <Link href="/" className="font-title text-lg font-bold text-text-dark tracking-wide cursor-pointer">
               PLAY
-            </span>
+            </Link>
             <span className="text-[13px] text-text-mid tracking-wide">
               {isGenerating
                 ? "生成中..."
