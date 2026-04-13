@@ -1,319 +1,219 @@
-/**
- * 首页
- */
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import { motion } from "motion/react";
-import { PERSONALITIES } from "@/data/personalities";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { GithubIcon } from "./_components/github-icon";
+import { TerminalLine } from "./_components/terminal-line";
 
-const VISIBLE_CODES = Object.entries(PERSONALITIES).filter(
-  ([, p]) => !p.hidden,
-);
-const HIDDEN_CODES = Object.entries(PERSONALITIES).filter(([, p]) => p.hidden);
+export default function LandingPage() {
+  const router = useRouter();
+  const [bootSequence, setBootSequence] = useState<number>(0);
+  const [agreed, setAgreed] = useState<boolean>(false);
+  const [isHovering, setIsHovering] = useState<boolean>(false);
 
-const FAMILIES: Record<string, { name: string; color: string; desc: string }> =
-  {
-    P: {
-      name: "卷王家族",
-      color: "var(--color-fam-p)",
-      desc: "主动出击 · 冲锋型",
-    },
-    L: {
-      name: "摸鱼家族",
-      color: "var(--color-fam-l)",
-      desc: "佛系养生 · 摸鱼型",
-    },
-    A: {
-      name: "暴躁家族",
-      color: "var(--color-fam-a)",
-      desc: "炸裂输出 · 暴躁型",
-    },
-    Y: {
-      name: "暖心家族",
-      color: "var(--color-fam-y)",
-      desc: "温柔辅助 · 暖心型",
-    },
+  // 强化“游戏”属性的文案
+  const sequences: string[] = [
+    "[INIT] 正在挂载 PLAY 游戏行为分析模型...",
+    "[SCAN] 正在读取你的 Steam/主机 隐藏成就及肝度记录...",
+    "[P]ersistence - 测算你的赛博劳役抗性与爆肝指数",
+    "[L]ogic - 扫描底层决策逻辑：是机制懂哥还是玄学赌狗？",
+    "[A]ggression - 评估数字暴力倾向与排位降维打击欲",
+    "[Y]earning - 探测你的虚拟多巴胺受体与剧情沉浸底线",
+    "[DONE] 传感器校准完毕，准备直面真实的自己。",
+  ];
+
+  useEffect(() => {
+    if (bootSequence < sequences.length) {
+      const timer = setTimeout(() => {
+        setBootSequence((prev) => prev + 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [bootSequence]);
+
+  const handleStart = () => {
+    if (!agreed) return;
+    router.push("/quiz");
   };
 
-function getFamilyColor(code: string) {
-  const firstChar = code[0];
-  return FAMILIES[firstChar]?.color ?? "var(--color-brand)";
-}
-
-const TIPS = [
-  {
-    title: "据实以答",
-    desc: "别装，游戏里是什么样就是什么样。",
-  },
-  {
-    title: "勿钻牛角",
-    desc: "第一直觉就是最真实的你。",
-  },
-  {
-    title: "题必有选",
-    desc: "不能跳过，就像你不能跳过剧情过场。",
-  },
-];
-
-export default function HomePage() {
   return (
-    <div className="min-h-screen bg-surface flex flex-col">
-      {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-white/92 backdrop-blur-[saturate(1.6)_blur(10px)] border-b border-border">
-        <div className="max-w-260 mx-auto px-8 py-3.5 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="w-5.5 h-5.5 rounded-md bg-(--color-brand) relative">
-              <div className="absolute inset-1.5 rounded-xs bg-white" />
+    <div className="min-h-screen bg-slate-950 text-neutral-200 flex flex-col items-center justify-center p-4 overflow-hidden relative selection:bg-emerald-500/30">
+      {/* 氛围光晕 (Cyberpunk / Gaming Vibe) */}
+      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-emerald-600/10 blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-purple-600/10 blur-[120px] pointer-events-none"></div>
+
+      {/* 科技感网格背景 */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f1a_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f1a_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
+
+      {/* GitHub 导流按钮 */}
+      <a
+        href="https://github.com/lxchapu/play"
+        target="_blank"
+        rel="noreferrer"
+        className="absolute top-6 right-6 z-50 flex items-center gap-2 px-4 py-2 bg-neutral-900/50 hover:bg-neutral-800 border border-neutral-700/50 hover:border-neutral-500 rounded-full transition-all duration-300 group backdrop-blur-sm"
+      >
+        <GithubIcon className="w-5 h-5 text-neutral-300 group-hover:text-white transition-colors" />
+        <span className="font-mono text-sm text-neutral-400 group-hover:text-neutral-100 hidden sm:inline">
+          Star on GitHub
+        </span>
+        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-1"></div>
+      </a>
+
+      <div className="w-full max-w-2xl relative z-10 flex flex-col gap-8 mt-12 md:mt-0">
+        {/* 顶部：带有毛玻璃质感的终端区 */}
+        <div className="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 rounded-xl p-5 min-h-60 shadow-2xl shadow-emerald-900/5">
+          <div className="flex justify-between items-center mb-4 border-b border-slate-700/50 pb-3">
+            <div className="flex gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_5px_rgba(239,68,68,0.5)]"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-[0_0_5px_rgba(234,179,8,0.5)]"></div>
+              <div className="w-3 h-3 rounded-full bg-emerald-500/80 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></div>
             </div>
-            <span className="font-title text-lg font-bold text-text-dark tracking-wide">
-              PLAY
+            <span className="text-xs font-mono text-slate-400 px-2 py-0.5 bg-slate-800 rounded">
+              PLAY_Engine_v1.0.exe
             </span>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-[13px] text-text-mid tracking-wide">
-              自嘲娱乐
-            </span>
-            <a
-              href="https://github.com/lxchapu/play"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-text-mid hover:text-text-dark transition-colors"
-            >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                className="shrink-0"
-                aria-hidden="true"
-              >
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-              </svg>
-              GitHub
-            </a>
-          </div>
-        </div>
-      </nav>
 
-      {/* Hero */}
-      <section className="relative bg-(--color-brand) text-white overflow-hidden px-8 pt-18 pb-30">
-        {/* Decorative shapes */}
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.12)_0,transparent_35%),radial-gradient(circle_at_85%_80%,rgba(255,255,255,0.08)_0,transparent_40%)]" />
-
-        <motion.div
-          className="max-w-205 mx-auto text-center relative z-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-white/85 mb-4">
-            P·L·A·Y Type Indicator
-          </p>
-          <h1 className="font-title font-bold text-[56px] leading-[1.12] text-white mb-3.5 tracking-tight">
-            MBTI 已经过时
-            <br />
-            PLAY 来了
-          </h1>
-          <p className="font-title font-semibold text-[22px] leading-[1.35] text-white/92 mb-5 max-w-160 mx-auto tracking-tight">
-            自嘲型游戏人格测试
-          </p>
-          <p className="text-lg leading-[1.65] text-white/90 mb-9 max-w-140 mx-auto">
-            50+ 道灵魂拷问，四维交叉分析，
-            <br />
-            为君精准定位此生游戏之废料品类。
-          </p>
-          <div className="flex items-center justify-center gap-6 flex-wrap">
-            <a
-              href="/quiz"
-              className="inline-flex items-center gap-2.5 text-base font-semibold text-white bg-brand-dark rounded-[30px] px-8 py-4 shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:bg-[#4338ca] hover:shadow-[0_6px_20px_rgba(0,0,0,0.35)] transition-all"
-            >
-              开始测试
-              <ArrowRight
-                size={18}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
-            </a>
-            <span className="text-sm text-white/75">约需 5 分钟</span>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Tips */}
-      <div className="max-w-200 mx-auto -mt-15 px-6 relative z-20">
-        <div className="grid grid-cols-3 gap-5">
-          {TIPS.map((tip) => (
-            <div
-              key={tip.title}
-              className="bg-surface border border-border rounded-2xl px-6 py-7 text-center shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
-            >
-              <p className="font-title text-xl font-bold text-text-dark mb-2">
-                {tip.title}
-              </p>
-              <p className="text-sm text-text-mid leading-relaxed">
-                {tip.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Personality Preview Grid */}
-      <section className="max-w-7xl mx-auto mt-20 px-10">
-        <div className="text-center mb-10">
-          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-text-soft mb-3">
-            16 种人格 · The Waste Gallery
-          </p>
-          <h2 className="font-title text-4xl font-bold text-text-dark tracking-tight">
-            君之归宿，四族十六型
-          </h2>
-          <p className="mt-3.5 text-sm text-text-soft tracking-wide">
-            点击卡片查看类型释义
-          </p>
-        </div>
-
-        <motion.div
-          className="grid grid-cols-4 gap-5"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.04,
-              },
-            },
-          }}
-        >
-          {VISIBLE_CODES.map(([code, p]) => (
-            <TileCard key={code} code={code} personality={p} />
-          ))}
-        </motion.div>
-      </section>
-
-      {/* Legend */}
-      <section className="flex flex-col items-stretch gap-7 mt-9 max-w-230 mx-auto px-5">
-        {/* Quadrants */}
-        <div className="text-center">
-          <div className="flex flex-col items-center gap-1.5 mb-3.5">
-            <p className="font-title text-[15px] font-semibold tracking-wide text-text-dark">
-              四族色谱
-            </p>
-            <p className="text-xs leading-relaxed text-text-soft max-w-[34em]">
-              上图 16 张卡片之主色来自 P/L × A/Y 四象限
-            </p>
-          </div>
-          <div className="flex justify-center flex-wrap gap-3.5 gap-x-7">
-            {Object.entries(FAMILIES).map(([key, f]) => (
-              <div
-                key={key}
-                className="flex items-center gap-2 text-[13px] text-text-mid"
-              >
-                <span
-                  className="w-3 h-3 rounded-full shrink-0"
-                  style={{ background: f.color }}
-                />
-                <span>{f.name}</span>
-              </div>
-            ))}
+          <div className="flex flex-col gap-1.5">
+            {sequences.map(
+              (text, index) =>
+                index <= bootSequence && (
+                  <TerminalLine
+                    key={text}
+                    text={text}
+                    delay={0}
+                    isGlitch={index === sequences.length - 1}
+                  />
+                ),
+            )}
           </div>
         </div>
 
-        {/* Hidden */}
-        <div className="text-center">
-          <div className="flex flex-col items-center gap-1.5 mb-3.5">
-            <p className="font-title text-[15px] font-semibold tracking-wide text-text-dark">
-              隐藏人格 · 彩蛋
-            </p>
-            <p className="text-xs leading-relaxed text-text-soft max-w-[34em]">
-              需特定作答触发，判定点见结果页
-            </p>
-          </div>
-          <div className="flex justify-center flex-wrap gap-2.5">
-            {HIDDEN_CODES.map(([code, p]) => (
-              <span
-                key={code}
-                className="inline-flex items-center gap-2 px-3.5 py-1.75 pl-2.5 rounded-full bg-surface border border-border text-xs font-medium text-text-mid leading-snug whitespace-nowrap"
-              >
-                <span className="text-[1.1em] leading-none shrink-0">
-                  {p.emoji}
-                </span>
-                <span>{p.name}</span>
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="mt-24 border-t border-border px-8 py-8 text-center">
-        <p className="text-[13px] text-text-soft leading-relaxed">
-          本测试仅供娱乐，未经临床验证，
-          <br />
-          请勿用于群嘲、相亲、求职或发律师函。
-        </p>
-      </footer>
-    </div>
-  );
-}
-
-function TileCard({
-  code,
-  personality: p,
-}: {
-  code: string;
-  personality: Omit<import("@/data/types").Personality, "code">;
-}) {
-  const tileColor = getFamilyColor(code);
-
-  return (
-    <motion.button
-      type="button"
-      className="w-full bg-linear-to-b from-(--tile-tint) to-surface border border-border rounded-[20px] px-4.5 pt-6.5 pb-5.5 text-center relative overflow-hidden transition-all duration-250 hover:-translate-y-1 hover:border-(--tile-color) hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)] focus-visible:outline-2 focus-visible:outline-offset-3"
-      style={
-        {
-          "--tile-color": tileColor,
-          "--tile-tint": `${tileColor}10`,
-        } as React.CSSProperties
-      }
-      variants={{
-        hidden: { opacity: 0, y: 16 },
-        visible: { opacity: 1, y: 0 },
-      }}
-    >
-      {/* Emoji avatar area */}
-      <div className="relative w-45 max-w-full mx-auto mb-3 aspect-square">
+        {/* 核心内容区：当加载完毕后淡入显示 */}
         <div
-          className="w-full h-full rounded-full flex items-center justify-center text-6xl"
-          style={{ background: `${tileColor}12` }}
+          className={`transition-all duration-1000 ease-in-out flex flex-col items-center gap-8 ${bootSequence >= sequences.length ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          {p.emoji}
+          <div className="text-center space-y-4 flex flex-col items-center">
+            {/* 游戏玩家专属人格鉴定标签 */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-mono text-xs sm:text-sm shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              游戏玩家专属人格鉴定
+            </div>
+
+            {/* 新增口号：展现赛博态度 */}
+            <div className="font-mono text-sm sm:text-base text-slate-400 font-medium tracking-wide">
+              <span className="line-through decoration-slate-500/70 decoration-2 opacity-50 transition-opacity hover:opacity-100 cursor-default">
+                MBTI 已经过时
+              </span>
+              <span className="mx-3 text-emerald-500/40 italic">{"///"}</span>
+              <span className="text-emerald-400 font-bold tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse">
+                PLAY 来了
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-neutral-100 via-neutral-300 to-slate-500 drop-shadow-lg">
+              赛博共鸣诊断系统
+            </h1>
+            <p className="text-slate-400 font-mono text-sm md:text-base max-w-lg">
+              别装了，在这个体检中心，你平时的每一次{" "}
+              <span className="text-emerald-400/80">点击</span> 和{" "}
+              <span className="text-emerald-400/80">破防</span> 都在出卖你。
+            </p>
+          </div>
+
+          {/* 免责声明 */}
+          <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 p-6 rounded-xl w-full max-w-md group hover:border-slate-500/50 transition-colors">
+            <h3 className="text-red-400 font-mono text-sm mb-4 flex items-center gap-2">
+              <span className="animate-pulse">⚠</span> The Disclaimer
+            </h3>
+
+            <label className="flex items-start gap-3 cursor-pointer">
+              <div className="relative shrink-0 mt-1">
+                <input
+                  type="checkbox"
+                  className="peer sr-only"
+                  checked={agreed}
+                  onChange={(e) => setAgreed(e.target.checked)}
+                />
+                <div className="w-5 h-5 border-2 border-slate-600 rounded bg-slate-800 peer-checked:bg-emerald-500 peer-checked:border-emerald-500 transition-all duration-200"></div>
+                <svg
+                  className="absolute inset-0 w-5 h-5 text-slate-950 scale-0 peer-checked:scale-100 transition-transform pointer-events-none"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors">
+                本人已知晓本报告仅代表赛博人格映射，并非现实权威诊断。我已准备好剥开虚荣的战绩外衣，并
+                <strong className="text-emerald-400 font-normal">
+                  做好被戳中脊梁骨的准备
+                </strong>
+                。
+              </span>
+            </label>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleStart}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+            disabled={!agreed}
+            className={`
+              relative px-10 py-4 font-mono font-bold text-lg tracking-widest rounded-lg overflow-hidden transition-all duration-300
+              ${
+                agreed
+                  ? "bg-emerald-500 text-slate-950 hover:bg-emerald-400 hover:scale-[1.02] shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+                  : "bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700/50"
+              }
+            `}
+          >
+            {/* 动态应用 glitch-text 类来激活故障效果 */}
+            <span
+              className={`relative z-10 flex items-center justify-center gap-2 ${isHovering && agreed ? "glitch-text" : ""}`}
+              data-text="[ 确 认 链 接 ]"
+            >
+              {agreed ? (
+                <>
+                  {isHovering ? "[ 确 认 链 接 ]" : "接 入 神 经 链 路"}
+                  {!isHovering && (
+                    <svg
+                      className="w-5 h-5 animate-bounce-x"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  )}
+                </>
+              ) : (
+                "请 先 签 署 协 议"
+              )}
+            </span>
+            {/* 按钮扫描光效 */}
+            {agreed && (
+              <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/40 to-transparent hover:animate-[shimmer_1.5s_infinite]"></div>
+            )}
+          </button>
         </div>
       </div>
-
-      {/* Code + Abbr */}
-      <div className="inline-flex items-center gap-2.5 relative mb-1.5">
-        <span
-          className="font-title text-[11px] font-bold tracking-[0.24em]"
-          style={{ color: tileColor }}
-        >
-          {code}
-        </span>
-        <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-text-soft">
-          {p.abbr}
-        </span>
-      </div>
-
-      {/* Name */}
-      <p className="font-title text-xl font-bold text-text-dark tracking-tight relative mb-1.5">
-        {p.name}
-      </p>
-
-      {/* Tagline */}
-      <p className="text-xs leading-relaxed text-text-mid italic relative max-w-55 mx-auto">
-        「{p.quote}」
-      </p>
-    </motion.button>
+    </div>
   );
 }
