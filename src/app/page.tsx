@@ -61,7 +61,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-surface flex flex-col">
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-white/92 backdrop-blur-[saturate(1.6)_blur(10px)] border-b border-border">
-        <div className="max-w-280 mx-auto px-8 py-3.5 flex items-center justify-between gap-4">
+        <div className="max-w-260 mx-auto px-8 py-3.5 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <div className="w-5.5 h-5.5 rounded-md bg-(--color-brand) relative">
               <div className="absolute inset-1.5 rounded-xs bg-white" />
@@ -140,7 +140,7 @@ export default function HomePage() {
       </section>
 
       {/* Tips */}
-      <div className="max-w-250 mx-auto -mt-15 px-6 relative z-20">
+      <div className="max-w-200 mx-auto -mt-15 px-6 relative z-20">
         <div className="grid grid-cols-3 gap-5">
           {TIPS.map((tip) => (
             <div

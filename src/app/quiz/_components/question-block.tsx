@@ -53,7 +53,7 @@ export function QuestionBlock({
       )}
 
       {/* Options */}
-      <div className="w-full max-w-155 flex flex-col gap-2.5 text-left mb-2">
+      <div className="w-full max-w-125 flex flex-col gap-2.5 text-left mb-2">
         {options.map((opt, idx) => {
           return (
             <button

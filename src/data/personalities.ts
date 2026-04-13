@@ -1,5 +1,41 @@
-import type { Personality } from "./types";
+import type { Dimension, Personality } from "./types";
 
+export const DIMENSION_LABELS: {
+  upper: Dimension;
+  lower: Dimension;
+  upperLabel: string;
+  lowerLabel: string;
+  description: string;
+}[] = [
+  {
+    upper: "P",
+    lower: "p",
+    upperLabel: "勤奋·执行力",
+    lowerLabel: "随缘·摸鱼",
+    description: "你在游戏中投入的时间和执行力有多强",
+  },
+  {
+    upper: "L",
+    lower: "l",
+    upperLabel: "逻辑·考据",
+    lowerLabel: "玄学·感性",
+    description: "你更信赖数据分析还是直觉玄学",
+  },
+  {
+    upper: "A",
+    lower: "a",
+    upperLabel: "攻击性·暴躁",
+    lowerLabel: "温和·佛系",
+    description: "你在竞技中的情绪强度和社交风格",
+  },
+  {
+    upper: "Y",
+    lower: "y",
+    upperLabel: "效率·强度",
+    lowerLabel: "沉浸·情怀",
+    description: "你追求强度最优解还是享受沉浸体验",
+  },
+];
 /**
  * PLAY 16 赛博人格诊断书
  * 包含 16 种标准人格及隐藏人格的详细数据

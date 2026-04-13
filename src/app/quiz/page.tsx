@@ -5,9 +5,13 @@
 
 import { ArrowRight, Loader2 } from "lucide-react";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { META_QUESTION } from "@/data/questions";
 import type { Genre } from "@/data/types";
+import { calculateScores } from "@/logic/calculator";
+import { classifyPersonality } from "@/logic/classifier";
+import { encodeResult } from "@/logic/result-codec";
 import { QuestionBlock } from "./_components/question-block";
 import { useQuiz } from "./_hooks/use-quiz";
 
@@ -16,6 +20,7 @@ export default function QuizPage() {
     Genre,
     "universal"
   > | null>(null);
+  const router = useRouter();
 
   const {
     queue,
@@ -31,9 +36,17 @@ export default function QuizPage() {
 
   const canSubmit = metaAnswer !== null && isFinished;
 
+  const handleSubmit = () => {
+    if (!canSubmit) return;
+    const { scores, hiddenPersonalityScores } = calculateScores(queue, answers);
+    const personality = classifyPersonality(scores, hiddenPersonalityScores);
+    const encoded = encodeResult(personality.code, scores);
+    router.push(`/result?data=${encoded}`);
+  };
+
   const scrollToQuestion = useCallback(
     (qIdx: number) => {
-      console.log("滚动到第%d题，id：%s", qIdx + 1, queue[qIdx].id);
+      console.log("滚动到第%d题", qIdx, queue);
       document
         .getElementById(queue[qIdx].id)
         ?.scrollIntoView({ behavior: "smooth" });
@@ -67,7 +80,7 @@ export default function QuizPage() {
     <div className="min-h-screen bg-surface flex flex-col">
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-white/92 backdrop-blur-[saturate(1.6)_blur(10px)] border-b border-border">
-        <div className="max-w-1120 mx-auto px-8 py-3.5 flex items-center justify-between gap-4">
+        <div className="max-w-260 mx-auto px-8 py-3.5 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <div className="w-5.5 h-5.5 rounded-md bg-(--color-brand) relative">
               <div className="absolute inset-1.5 rounded-xs bg-white" />
@@ -182,6 +195,7 @@ export default function QuizPage() {
           <button
             type="button"
             disabled={!canSubmit}
+            onClick={handleSubmit}
             className="inline-flex items-center gap-2.5 text-sm font-semibold rounded-full px-6.5 py-3 bg-(--color-brand) text-white shadow-[0_4px_16px_rgba(99,102,241,0.25)] hover:bg-brand-dark hover:shadow-[0_6px_20px_rgba(99,102,241,0.35)] disabled:opacity-45 disabled:cursor-not-allowed transition-all"
           >
             {!metaAnswer

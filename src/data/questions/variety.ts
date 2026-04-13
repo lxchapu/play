@@ -14,7 +14,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     options: [
       {
         text: "立刻关掉并打开下一款。既然已经没有惊喜了，剩下的重复劳动是对我生命的一种侮辱。",
-        weight: { p: 25, L: 15, Y: -10 },
+        weight: { p: 25, L: 15, y: 10 },
         triggerBranchId: "V11",
       },
       {
@@ -57,7 +57,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     options: [
       {
         text: "光速下单。这叫‘建立个人赛博博物馆’，万一哪天我突然想玩其中某款呢？",
-        weight: { p: 25, y: 15, L: -5 },
+        weight: { p: 25, y: 15, l: 5 },
         triggerBranchId: "V12",
       },
       {
@@ -79,11 +79,11 @@ export const VARIETY_QUESTIONS: Question[] = [
     options: [
       {
         text: "关掉电脑，瘫在沙发上刷短视频。‘选游戏’这个动作本身已经耗尽了我所有的游戏热情。",
-        weight: { p: 30, y: -15, a: 10 },
+        weight: { p: 30, Y: 15, a: 10 },
       },
       {
         text: "随机挑选一款已经通关过的游戏重新开始。至少这里是安全的，不需要我再付出学习新机制的脑细胞。",
-        weight: { p: 15, y: 20, L: -10 },
+        weight: { p: 15, y: 20, l: 10 },
       },
       {
         text: "根据折扣力度或评分高低，像个执行代码的机器一样强迫自己点开排在第一位的那款。",
@@ -108,7 +108,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       },
       {
         text: "陷入反思。好像确实是这样，我只是个逃避深度思考的赛博流浪汉。",
-        weight: { p: 15, a: 15, Y: -15 },
+        weight: { p: 15, a: 15, y: 15 },
       },
     ],
   },
@@ -125,11 +125,11 @@ export const VARIETY_QUESTIONS: Question[] = [
       },
       {
         text: "立刻拍照上传到社交媒体并配文。享受那种拆穿工业化神话的快感。",
-        weight: { A: 20, L: 10, y: -5 },
+        weight: { A: 20, L: 10, Y: 5 },
       },
       {
         text: "无视它，并迅速跳回正常路径。我只需要完美的体验，这些破绽会破坏我的沉浸美学。",
-        weight: { y: 15, l: 15, p: -5 },
+        weight: { y: 15, l: 15, P: 5 },
       },
     ],
   },
@@ -142,7 +142,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     options: [
       {
         text: "一口气下载 50 个。每个只玩 5 分钟，只要确认了核心创意，我就已经‘品鉴’完了。",
-        weight: { p: 25, L: 20, Y: -10 },
+        weight: { p: 25, L: 20, y: 10 },
         triggerBranchId: "V13",
       },
       {
@@ -172,7 +172,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       },
       {
         text: "看一眼画风就直接劝退。我杂食不代表我什么都吃，我有我的审美底线。",
-        weight: { l: 20, A: 15, y: -10 },
+        weight: { l: 20, A: 15, Y: 10 },
       },
     ],
   },
@@ -193,7 +193,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       },
       {
         text: "犹豫到超时。然后在接下来的三个月里把它挂在库里当装饰品，再也没点开过。",
-        weight: { p: 25, y: 15, Y: -10 },
+        weight: { p: 25, y: 25 },
       },
     ],
   },
@@ -206,7 +206,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     options: [
       {
         text: "立刻右键卸载，并顺手点开了商店的‘猜你喜欢’。神作已成过去，我的灵魂永远在下一款路上。",
-        weight: { p: 30, Y: 20, y: -10 },
+        weight: { p: 30, Y: 30 },
       },
       {
         text: "在桌面发呆很久。试图消化这份巨大的情感冲击，短时间内无法接受任何低质量的游戏。",
@@ -231,7 +231,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     options: [
       {
         text: "那是上个世纪的事了。结局不重要，重要的是我爽到的那前 20 分钟。",
-        weight: { p: 30, Y: -15 },
+        weight: { p: 30, y: 15 },
       },
       {
         text: "我有在坚持通关，只是我通关的速度赶不上我买入的速度。",
@@ -253,7 +253,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       },
       {
         text: "卖！反正我也不玩，这种把一堆垃圾当宝贝的行为我早就想戒了。",
-        weight: { L: 20, Y: 20, p: -10 },
+        weight: { L: 20, Y: 20, P: 10 },
       },
     ],
   },

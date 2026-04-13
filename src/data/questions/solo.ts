@@ -57,11 +57,11 @@ export const SOLO_QUESTIONS: Question[] = [
     options: [
       {
         text: "哪怕是看视频对照攻略，我也要把最后那点进度舔干净。不拿到白金，这游戏就不算玩过。",
-        weight: { P: 25, L: -5, Y: 15 },
+        weight: { P: 25, l: 5, Y: 15 },
       },
       {
         text: "在心里默默向它告别。美好的记忆应该留在结局那一刻，而不是在重复劳动的地狱里消磨。",
-        weight: { y: 20, p: 15, Y: -10 },
+        weight: { y: 30, p: 15 },
       },
       {
         text: "直接卸载，反向安装下一款。库存里还有 30 多个‘待拯救的世界’，我没空在这里数麻雀。",
@@ -78,7 +78,7 @@ export const SOLO_QUESTIONS: Question[] = [
     options: [
       {
         text: "感觉折腾 Mod 的过程比玩游戏本身爽多了。看到游戏稳定 60 帧那一刻，我满足地下线了。",
-        weight: { L: 20, P: 15, y: -10 },
+        weight: { L: 20, P: 15, Y: 10 },
         triggerBranchId: "S14",
       },
       {
@@ -130,7 +130,7 @@ export const SOLO_QUESTIONS: Question[] = [
       },
       {
         text: "叹口气继续走。残缺也是一种美，我没那耐心为了一个评价在这儿反复折腾。",
-        weight: { p: 15, a: 10, Y: -10 },
+        weight: { p: 15, a: 10, y: 10 },
       },
     ],
   },
@@ -172,7 +172,7 @@ export const SOLO_QUESTIONS: Question[] = [
       },
       {
         text: "先切简单模式过去，拿完奖励再切回最高难度。这叫‘战术性妥协’。",
-        weight: { L: 15, Y: 20, p: -5 },
+        weight: { L: 15, Y: 20, P: 5 },
       },
     ],
   },
@@ -236,7 +236,7 @@ export const SOLO_QUESTIONS: Question[] = [
       },
       {
         text: "放弃寻找。如果一个地方这么难找，说明那里的宝箱肯定不值钱。",
-        weight: { p: 20, Y: -10 },
+        weight: { p: 20, y: 10 },
       },
     ],
   },
@@ -292,7 +292,7 @@ export const SOLO_QUESTIONS: Question[] = [
     options: [
       {
         text: "立刻使用。我只想看我想看的风景，无意义的重复劳动是对我智商的羞辱。",
-        weight: { L: 20, Y: 15, P: -30 },
+        weight: { L: 20, Y: 15, p: 30 },
         hackProbability: 1.0,
       },
       {
@@ -315,7 +315,7 @@ export const SOLO_QUESTIONS: Question[] = [
       },
       {
         text: "开始怀疑人生。也许‘完美’只是策划用来消耗我寿命的陷阱，我认栽。",
-        weight: { p: 15, Y: -10 },
+        weight: { p: 15, y: 10 },
       },
     ],
   },

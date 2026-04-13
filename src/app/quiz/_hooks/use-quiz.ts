@@ -2,7 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import { ALL_QUESTION_MAP, QUESTIONS_POOLS } from "@/data/questions";
-import type { Dimension, Genre, Question, Scores } from "@/data/types";
+import type { Genre, Question } from "@/data/types";
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -119,38 +119,6 @@ export const useQuiz = () => {
     [queue, answers],
   );
 
-  /**
-   * 计算当前全部有效答案的维度得分与隐藏人格得分
-   */
-  const getScores = useCallback(() => {
-    const s: Scores = {
-      P: 0,
-      L: 0,
-      A: 0,
-      Y: 0,
-      p: 0,
-      l: 0,
-      a: 0,
-      y: 0,
-    };
-    const h = { hack: 0, liby: 0, smur: 0 };
-
-    for (const q of queue) {
-      const optIdx = answers[q.id];
-      if (optIdx === undefined) continue;
-      const opt = q.options[optIdx];
-      if (!opt) continue;
-      for (const [dim, weight] of Object.entries(opt.weight)) {
-        s[dim as Dimension] += weight;
-      }
-      h.hack += opt.hackProbability ?? 0;
-      h.liby += opt.libyProbability ?? 0;
-      h.smur += opt.smurProbability ?? 0;
-    }
-
-    return { scores: s, hiddenPersonalityScores: h };
-  }, [queue, answers]);
-
   return {
     queue,
     totalQuestions,
@@ -162,7 +130,6 @@ export const useQuiz = () => {
     isFinished,
     isGenerating,
     answers,
-    getScores,
     answerQuestion,
     generateQueue,
   };

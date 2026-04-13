@@ -23,7 +23,7 @@ export const GACHA_QUESTIONS: Question[] = [
       },
       {
         text: "‘点一下试试手感，没出就当垫抽了。’随缘心态，对结果不抱期望，甚至已经准备好去社区看欧皇晒卡并点个举报。",
-        weight: { p: 15, A: 10, Y: -5 },
+        weight: { p: 15, A: 10, y: 5 },
       },
     ],
   },
@@ -40,7 +40,7 @@ export const GACHA_QUESTIONS: Question[] = [
       },
       {
         text: "在心里挣扎 3 秒后倒头就睡。‘这几个垃圾材料不值得我折寿。’——虽然第二天醒来你会感到莫名的心痛。",
-        weight: { p: 20, y: 10, Y: -10 },
+        weight: { p: 20, y: 20 },
       },
       {
         text: "定个四小时后的闹钟再睡。既然现在溢出了，那就让它在清晨‘刚好’清空，这叫精准管理。",
@@ -57,7 +57,7 @@ export const GACHA_QUESTIONS: Question[] = [
     options: [
       {
         text: "‘强是一阵子的事，美是一辈子的事！’不仅要抽，还要抽到满命，用实际行动羞辱那些数值分奴。",
-        weight: { y: 25, p: 10, A: -10 },
+        weight: { y: 25, p: 10, a: 10 },
         triggerBranchId: "G12",
       },
       {
@@ -100,7 +100,7 @@ export const GACHA_QUESTIONS: Question[] = [
     options: [
       {
         text: "原地卸载。这种被算法羞辱的感觉让我觉得我的人生就是一场笑话，这游戏不配拥有我。",
-        weight: { A: 20, p: 15, Y: -20 },
+        weight: { A: 20, p: 15, y: 20 },
       },
       {
         text: "咬牙打开充值页面。‘策划，你赢了。’虽然心在滴血，但‘沉没成本’告诉你现在停下就是最大的亏损。",
@@ -126,11 +126,11 @@ export const GACHA_QUESTIONS: Question[] = [
       },
       {
         text: "去社区发帖大骂策划调低了极品爆率，并声称这游戏迟早药丸。",
-        weight: { A: 20, l: 10, y: -5 },
+        weight: { A: 20, l: 10, Y: 5 },
       },
       {
         text: "直接躺平。‘差不多得了，这几点攻击力加成救不了我的操作。’",
-        weight: { p: 20, a: 15, Y: -10 },
+        weight: { p: 20, a: 15, y: 10 },
       },
     ],
   },
@@ -147,7 +147,7 @@ export const GACHA_QUESTIONS: Question[] = [
       },
       {
         text: "感到一种深深的无力感。‘这游戏玩到最后只剩下一堆通货膨胀的数据。’开始寻找不看数值的赛博剧情。",
-        weight: { y: 20, p: 15, Y: -15 },
+        weight: { y: 35, p: 15 },
       },
       {
         text: "管他呢。反正我玩游戏只是为了舔立绘，只要老婆好看，退环境又如何？",
@@ -189,11 +189,11 @@ export const GACHA_QUESTIONS: Question[] = [
       },
       {
         text: "冷静分析。‘送得少说明游戏生命力强，不需要靠杀鸡取卵留人。’开始在评论区扮演理中客。",
-        weight: { L: 20, P: 10, a: -5 },
+        weight: { L: 20, P: 10, A: 5 },
       },
       {
         text: "直接破防离场，光速下载隔壁游戏。‘谁给我饭吃，谁就是我亲爹。’",
-        weight: { Y: 25, p: 15, L: -10 },
+        weight: { Y: 25, p: 15, l: 10 },
       },
     ],
   },
@@ -267,7 +267,7 @@ export const GACHA_QUESTIONS: Question[] = [
     options: [
       {
         text: "换！只要能结束这该死的坐牢，我愿意付出任何代价。",
-        weight: { Y: 25, P: -20, L: 10 },
+        weight: { Y: 25, p: 20, L: 10 },
       },
       {
         text: "不换。刷的过程虽然痛苦，但那也是我跟这个角色建立‘羁绊’的过程。",

@@ -7,7 +7,7 @@ import type { Question } from "../types";
 export const UNIVERSAL_QUESTIONS: Question[] = [
   {
     id: "U1",
-    genre: "all",
+    genre: "universal",
     title: "关于‘变弱’的尊严",
     question:
       "你精心钻研并苦练了半年的‘本命’角色，在今天的新版本中被策划拦腰砍了一刀导致胜率暴跌。面对这跌入谷底的‘赛博初恋’，你的选择是？",
@@ -19,17 +19,17 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
       },
       {
         text: "立刻开始寻找替代品，版本强才是真的强，旧的不去新的不来。",
-        weight: { Y: 15, L: 10, P: -5 },
+        weight: { Y: 15, L: 10, p: 5 },
       },
       {
         text: "含泪坚持，我玩的是情怀。只要我足够熟练，数值只是浮云。",
-        weight: { y: 15, p: 5, A: -10 },
+        weight: { y: 15, p: 5, a: 10 },
       },
     ],
   },
   {
     id: "U2",
-    genre: "all",
+    genre: "universal",
     title: "关于‘白嫖’的仪式感",
     question:
       "游戏周年庆，有个免费礼包需要你连续点击 100 次屏幕，或者强制观看一段 5 分钟且不可跳过的策划自嗨剧情。面对这波‘不拿白不拿’的廉价奖励，你的底线是？",
@@ -40,7 +40,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
       },
       {
         text: "算了一下时间成本和电费，决定这波被策划‘反薅’，直接下线。",
-        weight: { p: 15, L: 15, Y: -5 },
+        weight: { p: 15, L: 15, y: 5 },
       },
       {
         text: "哪怕是为了白嫖，我也会认真看完剧情，万一里面有彩蛋呢？",
@@ -50,7 +50,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
   },
   {
     id: "U3",
-    genre: "all",
+    genre: "universal",
     title: "关于‘攻略’的迷信",
     question:
       "你在攻略站看到一个极度复杂的‘逃课刷钱’秘籍，虽然逻辑极其绕口且成功率完全看脸（主打一个玄学）。面对这个可能逆天改命的机会，你会？",
@@ -61,24 +61,24 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
       },
       {
         text: "拿出笔记本分析这个机制的逻辑漏洞，试图找出 100% 成功的路径。",
-        weight: { L: 20, P: 10, y: -5 },
+        weight: { L: 20, P: 10, Y: 5 },
       },
       {
         text: "这种东西都是骗人的，我宁愿自己慢慢磨过去，那才是我的本事。",
-        weight: { P: 15, y: 10, L: -5 },
+        weight: { P: 15, y: 10, l: 5 },
       },
     ],
   },
   {
     id: "U4",
-    genre: "all",
+    genre: "universal",
     title: "关于‘良性 Bug’的操守",
     question:
       "你偶然发现一个可以无限刷金币的 Bug，且目前没有任何人发现。这可能是你‘赛博财富自由’的唯一机会。面对这个系统漏洞，你的第一反应是？",
     options: [
       {
         text: "反手就是一个举报。我追求公平，我也怕被封号。",
-        weight: { L: 15, A: -5, y: 5 },
+        weight: { L: 15, a: 5, y: 5 },
       },
       {
         text: "闷声大发财。在官方修复前，我要刷到全服第一的资产。",
@@ -92,29 +92,29 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
   },
   {
     id: "U5",
-    genre: "all",
+    genre: "universal",
     title: "关于‘全成就’的偏执",
     question:
       "你已经玩了 200 小时，全成就只剩下最后一个：“在主城对着大门原地跳跃 10000 次”。面对这个毫无意义但能让你强迫症痊愈的挑战，你会？",
     options: [
       {
         text: "一边骂策划心理变态，一边按着空格键看剧，直到跳完。",
-        weight: { P: 20, L: -5, Y: 10 },
+        weight: { P: 20, l: 5, Y: 10 },
       },
       {
         text: "人生还有很多美好的事，直接放弃，果断换个游戏玩。",
-        weight: { p: 15, Y: -10, y: 5 },
+        weight: { p: 15, y: 15 },
       },
       {
         text: "写个脚本或者找个连点器。我想要那个勋章，但我不想当傻子。",
-        weight: { L: 15, P: -10, Y: 15 },
+        weight: { L: 15, p: 10, Y: 15 },
         triggerBranchId: "U12",
       },
     ],
   },
   {
     id: "U6",
-    genre: "all",
+    genre: "universal",
     title: "关于‘新手教程’的尊严",
     question:
       "新游戏开局，系统强制弹出了长达 15 分钟的‘手把手基础教学’。面对这些把你当成 3 岁小孩的指令，你的真实操作是？",
@@ -135,14 +135,14 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
   },
   {
     id: "U7",
-    genre: "all",
+    genre: "universal",
     title: "关于‘买而不玩’的快感",
     question:
       "你关注很久的游戏终于打了一折，虽然你库存里还有 50 个没拆封的‘赛博骨灰’。看着那个绿色的‘购买’按钮，你内心的 OS 是？",
     options: [
       {
         text: "打折就是白送，不买就是亏。买完那一刻我已经通关了。",
-        weight: { p: 20, y: 15, L: -5 },
+        weight: { p: 20, y: 15, l: 5 },
         triggerBranchId: "U13",
       },
       {
@@ -157,7 +157,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
   },
   {
     id: "U8",
-    genre: "all",
+    genre: "universal",
     title: "关于‘T0 级’的崇拜",
     question:
       "社区里所有大佬都在推荐目前唯一的 T0 级打法，但那个流派的操作极其丑陋且完全不是你喜欢的风格。你会？",
@@ -169,7 +169,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
       },
       {
         text: "坚持我的下水道流派。把最弱的角色玩到极致，才是真正的浪漫。",
-        weight: { y: 20, p: 10, A: -10 },
+        weight: { y: 20, p: 10, a: 10 },
       },
       {
         text: "试图通过堆数值或者微调，把喜欢的流派强行拉到能用的水准。",
@@ -179,7 +179,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
   },
   {
     id: "U9",
-    genre: "all",
+    genre: "universal",
     title: "关于‘玄学抽卡’的挣扎",
     question:
       "面对一个极低概率的抽奖/掉落，你已经连续失败了 50 次。此时的你会采取什么行动？",
@@ -190,24 +190,24 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
       },
       {
         text: "面无表情地计算保底期望。概率是冰冷的，只有充值/肝量是真实的。",
-        weight: { L: 15, Y: 15, p: -5 },
+        weight: { L: 15, Y: 15, P: 5 },
       },
       {
         text: "怒骂策划调低了后台概率，并在心里发誓这是最后一次尝试。",
-        weight: { A: 15, l: 10, y: -5 },
+        weight: { A: 15, l: 10, Y: 5 },
       },
     ],
   },
   {
     id: "U10",
-    genre: "all",
+    genre: "universal",
     title: "关于‘陌生人’的距离",
     question:
       "在公共区域，一个路人向你发起了组队请求，甚至主动打字向你寻求帮助。你此刻的心理反应是？",
     options: [
       {
         text: "直接无视/关掉频道。别打扰我的节奏，我只想一个人静静地散步。",
-        weight: { a: 20, y: 15, A: -10 },
+        weight: { a: 30, y: 15 },
       },
       {
         text: "开启‘导游’模式，详细指点他的失误，甚至想直接接管他的操作。",
@@ -226,7 +226,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
   {
     id: "U11",
     isBranch: true,
-    genre: "all",
+    genre: "universal",
     title: "分支：关于懂哥的挑衅",
     question:
       "如果你在论坛激情输出时，有‘机制懂哥’跳出来嘲讽你‘菜是原罪’。面对这种蹬鼻子上脸的行为，你的反馈是？",
@@ -244,26 +244,26 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
   {
     id: "U12",
     isBranch: true,
-    genre: "all",
+    genre: "universal",
     title: "分支：科技飞升的诱惑",
     question:
       "如果你发现连点器也被封杀了，此时有人向你兜售可以直接抹除这个成就的‘三方科技’。面对这种飞升诱惑，你会？",
     options: [
       {
         text: "只要不被封，科技就是第一生产力，直接起飞。",
-        weight: { L: 20, Y: 10, P: -20 },
+        weight: { L: 20, Y: 10, p: 20 },
         hackProbability: 1.0,
       },
       {
         text: "那算了，为了个勋章不值得冒这种险，老实当个凡人。",
-        weight: { P: 10, L: -5 },
+        weight: { P: 10, l: 5 },
       },
     ],
   },
   {
     id: "U13",
     isBranch: true,
-    genre: "all",
+    genre: "universal",
     title: "分支：仓管员的自白",
     question:
       "既然你选择了‘买完就通关’，那么请诚实回答：你库存里那些‘从未运行’的游戏，带给你的快感是否已经超越了正在玩的这一款？",
@@ -282,7 +282,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
   {
     id: "U14",
     isBranch: true,
-    genre: "all",
+    genre: "universal",
     title: "分支：登顶后的虚无",
     question:
       "既然你为了强度选择了‘捏着鼻子改’，并在短时间内登顶全服。此时你看着那个你并不喜欢、甚至觉得丑陋的角色站在结算界面，你的真实想法是？",
@@ -300,7 +300,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
   {
     id: "U15",
     isBranch: true,
-    genre: "all",
+    genre: "universal",
     title: "分支：关于‘带新’的权力欲",
     question:
       "既然你开启了‘导游’模式，如果那个萌新完全不听你的指挥，坚持用最笨的方法折腾，你会？",
