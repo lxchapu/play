@@ -2,6 +2,7 @@
 
 import "./_styles/style.css";
 
+import { toPng } from "html-to-image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { PERSONALITIES } from "@/data/personalities";
@@ -47,8 +48,14 @@ export default function ResultPage() {
     if (!reportRef.current) return;
     setIsExporting(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log("✅ 绝密档案已生成！");
+      const dataUrl = await toPng(reportRef.current, {
+        pixelRatio: 2,
+        cacheBust: true,
+      });
+      const link = document.createElement("a");
+      link.download = `赛博病历-${p.title}.png`;
+      link.href = dataUrl;
+      link.click();
     } catch (error) {
       console.error("Export failed:", error);
     } finally {
