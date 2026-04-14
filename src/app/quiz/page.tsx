@@ -3,11 +3,11 @@ import "./_styles/style.css";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
 import type { Genre } from "@/data/types";
 import { calculateScores } from "@/logic/calculator";
 import { classifyPersonality } from "@/logic/classifier";
 import { encodeResult } from "@/logic/result-codec";
+import { GithubLink } from "../_components/github-link";
 import { GenrePhase } from "./_components/genre-phase";
 import { QuizPhase } from "./_components/quiz-phase";
 import { TopBar } from "./_components/top-bar";
@@ -154,14 +154,15 @@ export default function QuizPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-4 relative selection:bg-emerald-500/30">
-      <TopBar onClick={handleTerminate} />
+    <>
+      <div className="w-full max-w-300 mx-auto">
+        <div className="pt-6 px-6 flex justify-between">
+          <TopBar onClick={handleTerminate} />
+          <GithubLink />
+        </div>
+      </div>
 
-      {/* 科技背景 */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f1a_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f1a_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,transparent_20%,#020617_100%)] pointer-events-none"></div>
-
-      <div className="relative z-10 w-full flex justify-center">
+      <div className="relative z-1 w-full max-w-250 mx-auto py-30 px-8">
         {phase === "genre" && <GenrePhase onGenreSelect={handleGenreSelect} />}
         {phase === "transition" && <Transition logs={logs} />}
         {phase === "quiz" && (
@@ -178,6 +179,6 @@ export default function QuizPage() {
           />
         )}
       </div>
-    </div>
+    </>
   );
 }

@@ -27,7 +27,7 @@ export const QuizPhase = ({
   const hasCurrentAnswered = answerIndex !== undefined;
   return (
     <div
-      className={`w-full max-w-3xl mt-12 md:mt-0 transition-opacity duration-300 ${isWritingLog ? "opacity-50 pointer-events-none" : "opacity-100"}`}
+      className={`w-full max-w-3xl mx-auto transition-opacity duration-300 ${isWritingLog ? "opacity-50 pointer-events-none" : "opacity-100"}`}
     >
       {/* 顶部控制台 & 进度条区域 */}
       <div className="mb-6">
