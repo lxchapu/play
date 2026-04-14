@@ -1,5 +1,5 @@
 import { QRCodeSVG } from "qrcode.react";
-import type { Ref } from "react";
+import { type Ref, useMemo } from "react";
 import type { Personality, Scores } from "@/data/types";
 import { OctagonRadar } from "./octagon-radar";
 
@@ -9,9 +9,11 @@ import { OctagonRadar } from "./octagon-radar";
 function ReportHeader({
   personality,
   isAnomaly,
+  diagnosticId,
 }: {
   personality: Personality;
   isAnomaly: boolean;
+  diagnosticId: string;
 }) {
   return (
     <div className="flex items-start justify-between mb-8 animate-[reveal_0.5s_ease-out_both_0.1s]">
@@ -39,7 +41,7 @@ function ReportHeader({
         </h2>
 
         <div className="mt-3 font-mono text-[8px] text-slate-600 tracking-widest uppercase">
-          {`ID: ${Math.random().toString(36).substring(2, 10)} // TYPE_`}
+          {`ID: ${diagnosticId} // TYPE_`}
           {personality.id}
         </div>
       </div>
@@ -106,17 +108,17 @@ function VoiceLog({ personality }: { personality: Personality }) {
  */
 function BehaviorScan({
   personality,
-  themeAccent,
+  isAnomaly,
 }: {
   personality: Personality;
-  themeAccent: string;
+  isAnomaly: boolean;
 }) {
   return (
     <div
       className={`bg-slate-800/30 p-4 rounded-sm border border-slate-700/50 relative backdrop-blur-sm`}
     >
       <span
-        className={`text-${themeAccent}-400 font-mono text-[10px] block mb-2 font-bold uppercase tracking-wider`}
+        className={`font-mono text-[10px] block mb-2 font-bold uppercase tracking-wider ${isAnomaly ? "text-purple-400" : "text-emerald-400"}`}
       >
         {">"} Behavior_Scan_Report / 行为扫描
       </span>
@@ -132,10 +134,10 @@ function BehaviorScan({
  */
 function SystemEvaluation({
   personality,
-  themeAccent,
+  isAnomaly,
 }: {
   personality: Personality;
-  themeAccent: string;
+  isAnomaly: boolean;
 }) {
   return (
     <div className="mb-4 rounded-sm border border-slate-700/80 overflow-hidden bg-slate-900/80 shadow-lg relative backdrop-blur-sm">
@@ -150,7 +152,7 @@ function SystemEvaluation({
           {personality.toxicEvaluation}
         </p>
         <p
-          className={`text-${themeAccent}-400 font-bold text-sm md:text-base leading-relaxed text-justify`}
+          className={`font-bold text-sm md:text-base leading-relaxed text-justify ${isAnomaly ? "text-purple-400" : "text-emerald-400"}`}
         >
           {personality.soulFinisher}
         </p>
@@ -237,7 +239,10 @@ export function ReportCard({
   scores: Scores;
   shareUrl: string;
 }) {
-  const themeAccent = isAnomaly ? "purple" : "emerald";
+  const diagnosticId = useMemo(
+    () => Math.random().toString(36).substring(2, 10),
+    [],
+  );
 
   return (
     <div
@@ -245,24 +250,30 @@ export function ReportCard({
       id="report-card"
       className={`bg-slate-900 border ${isAnomaly ? "border-purple-700/50 shadow-[0_0_40px_rgba(168,85,247,0.3)]" : "border-slate-700/80 shadow-[0_0_40px_rgba(0,0,0,0.5)]"} relative overflow-hidden flex flex-col rounded-sm animate-[fadeIn_0.5s_ease-out]`}
     >
-      <div className="absolute -top-5 -right-10 md:-top-10 md:-right-15 text-[200px] md:text-[260px] opacity-[0.03] pointer-events-none grayscale select-none z-0 rotate-12 flex items-center justify-center">
+      <div className="absolute -top-5 -right-10 md:-top-10 md:-right-15 text-[200px] md:text-[260px] opacity-[0.03] pointer-events-none grayscale select-none rotate-12 flex items-center justify-center">
         {personality.emoji}
       </div>
 
       <div
-        className={`bg-slate-800 text-slate-400 text-[10px] md:text-xs font-mono px-4 py-1.5 flex justify-between items-center border-b ${isAnomaly ? "border-purple-800" : "border-slate-700"} relative z-10`}
+        className={`bg-slate-800 text-slate-400 text-[10px] md:text-xs font-mono px-4 py-1.5 flex justify-between items-center border-b ${isAnomaly ? "border-purple-800" : "border-slate-700"} relative z-1`}
       >
         <span>{"// PLAY_DIAGNOSTIC_REPORT"}</span>
-        <span className={`text-${themeAccent}-500/80 flex items-center gap-2`}>
+        <span
+          className={`flex items-center gap-2 ${isAnomaly ? "text-purple-500/80" : "text-emerald-500/80"}`}
+        >
           <span
-            className={`w-1.5 h-1.5 rounded-full bg-${themeAccent}-500 animate-pulse`}
+            className={`w-1.5 h-1.5 rounded-full animate-pulse ${isAnomaly ? "bg-purple-500" : "bg-emerald-500"}`}
           ></span>
           {isAnomaly ? "ANOMALY_OVERRIDE" : "CONFIDENTIAL"}
         </span>
       </div>
 
-      <div className="p-6 md:p-8 flex flex-col relative z-10">
-        <ReportHeader isAnomaly={isAnomaly} personality={personality} />
+      <div className="p-6 md:p-8 flex flex-col relative z-1">
+        <ReportHeader
+          diagnosticId={diagnosticId}
+          isAnomaly={isAnomaly}
+          personality={personality}
+        />
 
         <div className="bg-slate-950/40 border border-slate-800 rounded-lg p-5 mb-8 relative animate-[reveal_0.5s_ease-out_both_0.3s]">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-900 px-3 text-[10px] font-mono text-slate-500 tracking-widest">
@@ -277,14 +288,11 @@ export function ReportCard({
         <div className="mb-8 animate-[reveal_0.5s_ease-out_both_0.5s]">
           <VoiceLog personality={personality} />
 
-          <BehaviorScan themeAccent={themeAccent} personality={personality} />
+          <BehaviorScan isAnomaly={isAnomaly} personality={personality} />
         </div>
 
         <div className="border-t-2 border-dashed border-slate-700/60 pt-6 animate-[reveal_0.5s_ease-out_both_0.7s]">
-          <SystemEvaluation
-            themeAccent={themeAccent}
-            personality={personality}
-          />
+          <SystemEvaluation isAnomaly={isAnomaly} personality={personality} />
           <Advice personality={personality} />
         </div>
 
@@ -292,7 +300,14 @@ export function ReportCard({
       </div>
 
       <div
-        className={`absolute inset-0 pointer-events-none bg-[linear-gradient(to_bottom,transparent_0%,rgba(${isAnomaly ? "168,85,247" : "16,185,129"},0.05)_50%,transparent_100%)] h-5 animate-[scanLine_4s_linear_infinite] z-20`}
+        className={`absolute inset-0 pointer-events-none bg-linear-to-b from-transparent via-(--ui-gradient-color) to-transparent h-5 animate-[scanLine_4s_linear_infinite] z-20`}
+        style={
+          {
+            "--ui-gradient-color": isAnomaly
+              ? "rgba(168,85,247,0.05)"
+              : "rgba(16,185,129,0.05)",
+          } as React.CSSProperties
+        }
       ></div>
     </div>
   );
