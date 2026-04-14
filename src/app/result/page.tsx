@@ -3,7 +3,7 @@
 import "./_styles/style.css";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { PERSONALITIES } from "@/data/personalities";
 import { decodeResult } from "@/logic/result-codec";
 import { GithubLink } from "../_components/github-link";
@@ -59,7 +59,7 @@ export default function ResultPage() {
   if (isScanning) return <ScanningOverlay />;
 
   return (
-    <>
+    <Suspense>
       <div className="w-full max-w-300 mx-auto">
         <div className="pt-6 px-6 flex justify-end">
           <GithubLink />
@@ -79,6 +79,6 @@ export default function ResultPage() {
           onRestart={handleRestart}
         />
       </div>
-    </>
+    </Suspense>
   );
 }
