@@ -140,10 +140,10 @@ function SystemEvaluation({
   isAnomaly: boolean;
 }) {
   return (
-    <div className="mb-4 rounded-sm border border-slate-700/80 overflow-hidden bg-slate-900/80 shadow-lg relative backdrop-blur-sm">
+    <div className="relative mb-4 rounded-sm overflow-hidden border border-slate-700/80 shadow-md bg-slate-900/80 backdrop-blur-sm">
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-yellow-500"></div>
 
-      <div className="p-4 md:p-5 relative z-10">
+      <div className="p-4 relative z-10">
         <span className="text-yellow-500/90 font-mono text-[10px] md:text-xs mb-3 font-bold flex items-center gap-2 uppercase tracking-wider">
           <span className="w-1.5 h-1.5 bg-yellow-500/80 rounded-full animate-pulse"></span>
           System_Evaluation / 系统评价
@@ -165,14 +165,16 @@ function SystemEvaluation({
  */
 function Advice({ personality }: { personality: Personality }) {
   return (
-    <div className="bg-cyan-950/20 border border-cyan-800/50 p-4 rounded-sm relative backdrop-blur-sm">
+    <div className="relative rounded-sm overflow-hidden border border-cyan-800/50 shadow-md bg-cyan-950/20 backdrop-blur-sm ">
       <div className="absolute top-0 left-0 w-1 h-full bg-cyan-500"></div>
-      <span className="text-cyan-400 font-mono text-[10px] mb-2 font-bold flex items-center gap-1.5 uppercase tracking-wider">
-        CYBER_PRESCRIPTION / 赛博处方
-      </span>
-      <p className="text-cyan-100/80 text-xs md:text-sm leading-relaxed text-justify">
-        {personality.advice}
-      </p>
+      <div className="p-4 relative z-10">
+        <span className="text-cyan-400 font-mono text-[10px] mb-2 font-bold flex items-center gap-1.5 uppercase tracking-wider">
+          CYBER_PRESCRIPTION / 赛博处方
+        </span>
+        <p className="text-cyan-100/80 text-xs md:text-sm leading-relaxed text-justify">
+          {personality.advice}
+        </p>
+      </div>
     </div>
   );
 }
