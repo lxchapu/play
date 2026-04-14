@@ -29,7 +29,8 @@ export interface Question {
 
 interface MetaOption {
   id: Exclude<Genre, "universal">;
-  text: string;
+  label: string;
+  desc: string;
 }
 
 export interface MetaQuestion {

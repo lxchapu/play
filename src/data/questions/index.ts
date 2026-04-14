@@ -7,26 +7,28 @@ import { VARIETY_QUESTIONS } from "./variety";
 
 export const META_QUESTION: MetaQuestion = {
   id: "META1",
-  title: "前置题",
-  question:
-    "欢迎进入体检仓。\n检测到多处显卡波动，请选择你最常出没的赛博社区：",
-  note: "本题只用于语境路由，不计分；若稍后更改此项，后续答案会自动重置。",
+  title: "传感器校准",
+  question: "欢迎进入体检仓。检测到多处显卡波动，请选择你最常出没的赛博社区：",
   options: [
     {
       id: "solo",
-      text: "苦难单机流 (Solo/AAA)",
+      label: "苦难单机流 (Solo/AAA)",
+      desc: "把受苦当乐趣的电子苦行僧",
     },
     {
       id: "gacha",
-      text: "赛博抽卡二游 (Gacha/Anime)",
+      label: "赛博抽卡二游 (Gacha/Anime)",
+      desc: "被概率学反复蹂躏的赛博赌徒",
     },
     {
       id: "pvp",
-      text: "竞技/协作网游 (MMO/PVP)",
+      label: "竞技/协作网游 (MMO/PVP)",
+      desc: "靠血压和段位维持生命体征的压力怪",
     },
     {
       id: "variety",
-      text: "杂食性电子包工头 (Variety/Indie)",
+      label: "杂食性电子包工头 (Variety/Indie)",
+      desc: "库里有500个游戏但只玩商店的仓鼠",
     },
   ],
 };

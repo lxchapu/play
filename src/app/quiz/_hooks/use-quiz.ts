@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import { ALL_QUESTION_MAP, QUESTIONS_POOLS } from "@/data/questions";
 import type { Genre, Question } from "@/data/types";
 
@@ -22,11 +22,6 @@ export const useQuiz = () => {
   const [queue, setQueue] = useState<Question[]>([]);
   // 用户答案：questionId → optionIndex
   const [answers, setAnswers] = useState<Record<string, number>>({});
-  // 是否正在生成题目
-  const [isGenerating, setIsGenerating] = useState(false);
-  // 生成定时器引用，防止快速切换时竞态
-  const generateTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
-
   // 派生值
   const totalQuestions = queue.length;
   const answeredCount = queue.filter((q) => answers[q.id] !== undefined).length;
@@ -37,22 +32,14 @@ export const useQuiz = () => {
    * 通用题 10 道 + 类型题 8 道，打乱顺序
    */
   const generateQueue = useCallback((genre: Exclude<Genre, "universal">) => {
-    if (generateTimerRef.current) clearTimeout(generateTimerRef.current);
-    setIsGenerating(true);
-    const startTime = Date.now();
     const universalPool = QUESTIONS_POOLS.universal;
     const genrePool = QUESTIONS_POOLS[genre];
     const q = shuffle([
       ...pickRandom(universalPool, 10),
       ...pickRandom(genrePool, 8),
     ]);
-    const elapsed = Date.now() - startTime;
-    const delay = Math.max(0, 500 - elapsed);
-    generateTimerRef.current = setTimeout(() => {
-      setQueue(q);
-      setAnswers({});
-      setIsGenerating(false);
-    }, delay);
+    setQueue(q);
+    setAnswers({});
   }, []);
 
   /**
@@ -122,13 +109,7 @@ export const useQuiz = () => {
   return {
     queue,
     totalQuestions,
-    answeredCount,
-    progress:
-      totalQuestions === 0
-        ? 0
-        : Math.round((answeredCount / totalQuestions) * 100),
     isFinished,
-    isGenerating,
     answers,
     answerQuestion,
     generateQueue,
