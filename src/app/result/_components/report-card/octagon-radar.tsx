@@ -1,13 +1,15 @@
 import type { Scores } from "@/data/types";
 
-// --- 手搓 8 极八边形雷达图 (纯 SVG) ---
-export const OctagonRadar = ({
+/**
+ * 雷达图
+ */
+export function OctagonRadar({
   scores,
   isAnomaly,
 }: {
   scores: Scores;
   isAnomaly: boolean;
-}) => {
+}) {
   const { P, L, A, Y, p, l, a, y } = scores;
   const angles = [0, 45, 90, 135, 180, 225, 270, 315];
   const values = [P, A, L, Y, p, a, l, y];
@@ -26,41 +28,37 @@ export const OctagonRadar = ({
   );
 
   const labels = [
-    { key: "P", name: "爆肝", pos: "top-[-25px] left-1/2 -translate-x-1/2" },
+    { key: "P", name: "爆肝", pos: "top-[-20px] left-1/2 -translate-x-1/2" },
     {
       key: "A",
       name: "竞技",
-      pos: "top-[8%] right-[-10px] md:right-[-25px] translate-x-full",
+      pos: "top-[10%] right-[-10px] md:right-[-20px] translate-x-full",
     },
     {
       key: "L",
       name: "理性",
-      pos: "top-1/2 right-[-15px] md:right-[-35px] -translate-y-1/2 translate-x-full",
+      pos: "top-1/2 right-[-15px] md:right-[-30px] -translate-y-1/2 translate-x-full",
     },
     {
       key: "Y",
       name: "收益",
-      pos: "bottom-[8%] right-[-10px] md:right-[-25px] translate-x-full",
+      pos: "bottom-[10%] right-[-10px] md:right-[-20px] translate-x-full",
     },
-    {
-      key: "p",
-      name: "随缘",
-      pos: "bottom-[-25px] left-1/2 -translate-x-1/2",
-    },
+    { key: "p", name: "随缘", pos: "bottom-[-20px] left-1/2 -translate-x-1/2" },
     {
       key: "a",
       name: "佛系",
-      pos: "bottom-[8%] left-[-10px] md:left-[-25px] -translate-x-full",
+      pos: "bottom-[10%] left-[-10px] md:left-[-20px] -translate-x-full",
     },
     {
       key: "l",
       name: "直觉",
-      pos: "top-1/2 left-[-15px] md:left-[-35px] -translate-y-1/2 -translate-x-full",
+      pos: "top-1/2 left-[-15px] md:left-[-30px] -translate-y-1/2 -translate-x-full",
     },
     {
       key: "y",
       name: "沉浸",
-      pos: "top-[8%] left-[-10px] md:left-[-25px] -translate-x-full",
+      pos: "top-[10%] left-[-10px] md:left-[-20px] -translate-x-full",
     },
   ];
 
@@ -76,7 +74,7 @@ export const OctagonRadar = ({
     : "text-emerald-400 drop-shadow-[0_0_2px_rgba(16,185,129,0.8)]";
 
   return (
-    <div className="relative w-48 h-48 md:w-60 md:h-60 mx-auto my-8 flex items-center justify-center z-10">
+    <div className="relative w-44 h-44 md:w-56 md:h-56 mx-auto my-6 flex items-center justify-center z-10">
       <svg
         viewBox="0 0 100 100"
         className="absolute inset-0 w-full h-full overflow-visible"
@@ -88,7 +86,7 @@ export const OctagonRadar = ({
             points={points}
             fill="none"
             stroke="currentColor"
-            className="text-slate-700/50"
+            className="text-slate-700/40"
             strokeWidth="0.5"
           />
         ))}
@@ -103,7 +101,7 @@ export const OctagonRadar = ({
               x2={p2.split(",")[0]}
               y2={p2.split(",")[1]}
               stroke="currentColor"
-              className="text-slate-600/80"
+              className="text-slate-600/60"
               strokeWidth="0.5"
               strokeDasharray="2,2"
             />
@@ -141,11 +139,11 @@ export const OctagonRadar = ({
           >
             {label.key}
           </span>
-          <span className="text-[10px] md:text-xs text-slate-400 font-mono tracking-widest">
+          <span className="text-[9px] md:text-[10px] text-slate-500 font-mono tracking-widest">
             {label.name}
           </span>
         </div>
       ))}
     </div>
   );
-};
+}

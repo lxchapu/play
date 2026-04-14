@@ -8,6 +8,22 @@
     transform: translateY(0);
   }
 }
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
 @keyframes scanLine {
   0% {
     top: -10%;
@@ -33,7 +49,6 @@
   background: transparent;
 }
 
-/* 默认绿色系故障 */
 .glitch-text::before {
   left: 2px;
   text-shadow: -1px 0 #ff00c1;
@@ -45,7 +60,6 @@
   animation: glitch-2 3s infinite linear alternate-reverse;
 }
 
-/* 隐藏人格紫色系故障 */
 .glitch-text-purple::before {
   left: 2px;
   text-shadow: -2px 0 #ef4444;
