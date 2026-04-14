@@ -3,7 +3,7 @@
 import "./_styles/style.css";
 
 import { toPng } from "html-to-image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { notFound, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { PERSONALITIES } from "@/data/personalities";
 import { decodeResult } from "@/logic/result-codec";
@@ -26,10 +26,10 @@ function ResultContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const data = searchParams.get("data");
-  if (!data) return null;
+  if (!data) return notFound();
 
   const result = decodeResult(data);
-  if (!result || !PERSONALITIES[result.id]) return null;
+  if (!result || !PERSONALITIES[result.id]) return notFound();
 
   const { id, scores } = result;
 
