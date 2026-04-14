@@ -35,10 +35,7 @@ function ResultContent() {
 
   const p = { id, ...PERSONALITIES[id] };
 
-  const shareUrl =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/result?data=${data}`
-      : "";
+  const shareUrl = typeof window !== "undefined" ? window.location.origin : "";
 
   const handleRestart = () => {
     router.push("/quiz");
