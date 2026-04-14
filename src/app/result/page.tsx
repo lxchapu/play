@@ -12,7 +12,7 @@ import { ActionBar } from "./_components/action-bar";
 import { ReportCard } from "./_components/report-card";
 import { ScanningOverlay } from "./_components/scanning-overlay";
 
-export default function ResultPage() {
+function ResultContent() {
   const [isScanning, setIsScanning] = useState(true);
   const [isExporting, setIsExporting] = useState(false);
   const reportRef = useRef<HTMLDivElement>(null);
@@ -66,7 +66,7 @@ export default function ResultPage() {
   if (isScanning) return <ScanningOverlay />;
 
   return (
-    <Suspense>
+    <>
       <div className="w-full max-w-300 mx-auto">
         <div className="pt-6 px-6 flex justify-end">
           <GithubLink />
@@ -86,6 +86,14 @@ export default function ResultPage() {
           onRestart={handleRestart}
         />
       </div>
+    </>
+  );
+}
+
+export default function ResultPage() {
+  return (
+    <Suspense>
+      <ResultContent />
     </Suspense>
   );
 }
