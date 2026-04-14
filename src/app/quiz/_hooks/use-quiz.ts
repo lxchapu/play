@@ -20,7 +20,7 @@ function pickRandom<T>(arr: T[], count: number): T[] {
 export const useQuiz = () => {
   // 题目队列
   const [queue, setQueue] = useState<Question[]>([]);
-  // 用户答案：questionId → optionIndex
+  // 用户答案 {questionId: optionIndex}
   const [answers, setAnswers] = useState<Record<string, number>>({});
   // 派生值
   const totalQuestions = queue.length;
@@ -48,16 +48,16 @@ export const useQuiz = () => {
    * - 修改答案时返回 null（不自动前进）
    */
   const answerQuestion = useCallback(
-    (index: number, optionIndex: number) => {
-      const question = queue[index];
+    (questionIndex: number, optionIndex: number) => {
+      const question = queue[questionIndex];
       if (!question) return null;
 
       const newOption = question.options[optionIndex];
       if (!newOption) return null;
 
-      const oldOptIdx = answers[question.id];
+      const oldOptionIndex = answers[question.id];
       const oldOption =
-        oldOptIdx !== undefined ? question.options[oldOptIdx] : null;
+        oldOptionIndex !== undefined ? question.options[oldOptionIndex] : null;
 
       const oldBranchId = oldOption?.triggerBranchId;
       const newBranchId = newOption.triggerBranchId;
@@ -77,7 +77,7 @@ export const useQuiz = () => {
             ? prev.filter((q) => q.id !== oldBranchId)
             : [...prev];
           if (newBranch) {
-            copy.splice(index + 1, 0, newBranch);
+            copy.splice(questionIndex + 1, 0, newBranch);
           }
           return copy;
         });
@@ -96,10 +96,10 @@ export const useQuiz = () => {
       setAnswers((prev) => ({ ...prev, [question.id]: optionIndex }));
 
       // 仅首次作答时返回下一题索引
-      if (oldOptIdx !== undefined) return null;
+      if (oldOptionIndex !== undefined) return null;
 
-      if (newBranch || index < queue.length - 1) {
-        return index + 1;
+      if (newBranch || questionIndex < queue.length - 1) {
+        return questionIndex + 1;
       }
       return null;
     },

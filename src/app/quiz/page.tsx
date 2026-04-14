@@ -39,7 +39,6 @@ export default function QuizPage() {
   const {
     queue,
     totalQuestions,
-    isFinished,
     answers,
     answerQuestion,
     generateQueue,
@@ -87,10 +86,9 @@ export default function QuizPage() {
 
   const proceedToNext = (nextIndex: number | null) => {
     setIsWritingLog(false);
-
-    if (currentIndex < totalQuestions - 1) {
-      if (nextIndex) setCurrentIndex(nextIndex);
-    } else {
+    if (nextIndex) {
+      setCurrentIndex(nextIndex);
+    } else if (currentIndex === totalQuestions - 1) {
       submit();
     }
   };
@@ -134,7 +132,7 @@ export default function QuizPage() {
   };
 
   const submit = () => {
-    if (selectedGenre == null || !isFinished) return;
+    if (selectedGenre == null) return;
     const { scores, hiddenPersonalityScores } = calculateScores(queue, answers);
     const personality = classifyPersonality(scores, hiddenPersonalityScores);
     const encoded = encodeResult(personality.id, scores);
