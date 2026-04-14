@@ -6,25 +6,22 @@
 import type { Scores } from "@/data/types";
 
 export interface ResultPayload {
-  code: string;
+  id: string;
   scores: Scores;
 }
 
-export function encodeResult(code: string, scores: Scores): string {
-  const payload: ResultPayload = { code, scores };
+export function encodeResult(id: string, scores: Scores): string {
+  const payload: ResultPayload = { id, scores };
   const json = JSON.stringify(payload);
-  return btoa(json)
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/, "");
+  return btoa(json).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
-export function decodeResult(data: string): ResultPayload {
+export function decodeResult(data: string): ResultPayload | null {
   try {
     const base64 = data.replace(/-/g, "+").replace(/_/g, "/");
     const json = atob(base64);
     return JSON.parse(json) as ResultPayload;
   } catch {
-    return null as unknown as ResultPayload;
+    return null;
   }
 }

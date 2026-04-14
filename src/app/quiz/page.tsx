@@ -1,4 +1,5 @@
 "use client";
+import "./_styles/style.css";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -136,7 +137,7 @@ export default function QuizPage() {
     if (selectedGenre == null || !isFinished) return;
     const { scores, hiddenPersonalityScores } = calculateScores(queue, answers);
     const personality = classifyPersonality(scores, hiddenPersonalityScores);
-    const encoded = encodeResult(personality.code, scores);
+    const encoded = encodeResult(personality.id, scores);
     router.push(`/result?data=${encoded}`);
   };
 

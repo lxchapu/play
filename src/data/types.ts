@@ -42,15 +42,15 @@ export interface MetaQuestion {
 }
 
 export interface Personality {
-  code: string;
-  name: string;
+  id: string;
+  title: string;
   abbr: string;
   emoji: string;
-  description: string;
+  summary: string;
   quote: string;
   toxicEvaluation: string;
-  soulBlade: string;
-  cyberPrescription: string;
+  soulFinisher: string;
+  advice: string;
   traits: string[];
   hidden?: boolean;
 }

@@ -23,12 +23,12 @@ function buildCode(scores: Scores): string {
 /**
  * 将 code + PERSONALITIES 表合并为完整 Personality 对象
  */
-function resolve(code: string): Personality {
-  const entry = PERSONALITIES[code];
+function resolve(id: string): Personality {
+  const entry = PERSONALITIES[id];
   if (!entry) {
-    throw new Error(`Unknown personality code: ${code}`);
+    throw new Error(`Unknown personality code: ${id}`);
   }
-  return { code, ...entry };
+  return { id, ...entry };
 }
 
 /**
