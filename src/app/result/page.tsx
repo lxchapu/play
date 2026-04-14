@@ -32,8 +32,8 @@ function ResultContent() {
   if (!result || !PERSONALITIES[result.id]) return null;
 
   const { id, scores } = result;
+
   const p = { id, ...PERSONALITIES[id] };
-  const isAnomaly = !!p.hidden;
 
   const shareUrl =
     typeof window !== "undefined"
@@ -75,7 +75,6 @@ function ResultContent() {
       <div className="relative z-1 w-full max-w-lg mx-auto p-8 pb-12">
         <ReportCard
           reportRef={reportRef}
-          isAnomaly={isAnomaly}
           personality={p}
           scores={scores}
           shareUrl={shareUrl}

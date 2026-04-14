@@ -32,9 +32,9 @@ function ReportHeader({
 
         <h1
           className={`text-4xl md:text-5xl font-black text-slate-100 tracking-tighter drop-shadow-md mt-1 ${isAnomaly ? "glitch-text-purple" : "glitch-text"}`}
-          data-text={personality.id}
+          data-text={personality.abbr}
         >
-          {personality.id}
+          {personality.abbr}
         </h1>
         <h2 className="text-xl md:text-2xl font-bold text-slate-300 mt-1">
           {personality.title}
@@ -42,7 +42,7 @@ function ReportHeader({
 
         <div className="mt-3 font-mono text-[8px] text-slate-600 tracking-widest uppercase">
           {`ID: ${diagnosticId} // TYPE_`}
-          {personality.id}
+          {personality.abbr}
         </div>
       </div>
 
@@ -68,7 +68,7 @@ function TraitTags({
 }) {
   return (
     <div className="mt-2 pt-5 border-t border-dashed border-slate-800/80 flex flex-wrap justify-center gap-2">
-      {personality.traits?.map((trait: string, index: number) => (
+      {personality.traits.map((trait: string, index: number) => (
         <div
           key={trait}
           className={`flex items-center border ${isAnomaly ? "border-purple-900/50 bg-purple-950/20" : "border-emerald-900/50 bg-emerald-950/20"} rounded-sm overflow-hidden`}
@@ -229,13 +229,11 @@ function ReportFooter({
 export function ReportCard({
   personality,
   reportRef,
-  isAnomaly,
   scores,
   shareUrl,
 }: {
   personality: Personality;
   reportRef: Ref<HTMLDivElement>;
-  isAnomaly: boolean;
   scores: Scores;
   shareUrl: string;
 }) {
@@ -243,6 +241,8 @@ export function ReportCard({
     () => Math.random().toString(36).substring(2, 10),
     [],
   );
+
+  const isAnomaly = !!personality.hidden;
 
   return (
     <div
