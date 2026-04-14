@@ -3,11 +3,13 @@
 import "./_styles/style.css";
 
 import { useRouter, useSearchParams } from "next/navigation";
+
 import { useEffect, useState } from "react";
 import { PERSONALITIES } from "@/data/personalities";
 import { decodeResult } from "@/logic/result-codec";
 import { GithubLink } from "../_components/github-link";
 import { OctagonRadar } from "./_components/octagon-radar";
+import { Qrcode } from "./_components/qrcode";
 import { ScanningOverlay } from "./_components/scanning-overlay";
 
 export default function ResultPage() {
@@ -31,6 +33,11 @@ export default function ResultPage() {
   const p = { id, ...PERSONALITIES[id] };
   const isAnomaly = !!p.hidden;
   const themeAccent = isAnomaly ? "purple" : "emerald";
+
+  const qrcodeUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/result?data=${data}`
+      : "";
 
   function onReboot() {
     router.push("/quiz");
@@ -234,14 +241,8 @@ export default function ResultPage() {
                   SCAN CODE TO DIAGNOSE YOURSELF
                 </span>
               </div>
-              <div className="w-12 h-12 bg-slate-800 p-1 flex flex-wrap gap-0.5">
-                {Array.from({ length: 16 }).map((_, i) => (
-                  <div
-                    key={i.toString()}
-                    className={`size-2.25 ${Math.random() > 0.4 ? "bg-slate-400" : "bg-transparent"}`}
-                  ></div>
-                ))}
-              </div>
+
+              {qrcodeUrl && <Qrcode data={qrcodeUrl} />}
             </div>
           </div>
 
