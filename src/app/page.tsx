@@ -2,35 +2,28 @@
 import "./_styles/style.css";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GithubLink } from "./_components/github-link";
-import { TerminalLine } from "./_components/terminal-line";
+import { Terminal, type TerminalLog } from "./_components/terminal";
+
+const LOGS: TerminalLog[] = [
+  { text: "[INIT] 正在挂载 PLAY 游戏行为分析模型..." },
+  { text: "[SCAN] 正在读取你的 Steam/主机 隐藏成就及肝度记录..." },
+  { text: "[P]ersistence - 测算你的赛博劳役抗性与爆肝指数", highlight: "P" },
+  {
+    text: "[L]ogic - 扫描底层决策逻辑：是机制懂哥还是玄学赌狗？",
+    highlight: "L",
+  },
+  { text: "[A]ggression - 评估数字暴力倾向与排位降维打击欲", highlight: "A" },
+  { text: "[Y]earning - 探测你的虚拟多巴胺受体与剧情沉浸底线", highlight: "Y" },
+  { text: "[DONE] 传感器校准完毕，准备直面真实的自己。", variant: "error" },
+];
 
 export default function LandingPage() {
   const router = useRouter();
-  const [bootSequence, setBootSequence] = useState<number>(0);
+  const [booted, setBooted] = useState(false);
   const [agreed, setAgreed] = useState<boolean>(false);
   const [isHovering, setIsHovering] = useState<boolean>(false);
-
-  // 强化“游戏”属性的文案
-  const sequences: string[] = [
-    "[INIT] 正在挂载 PLAY 游戏行为分析模型...",
-    "[SCAN] 正在读取你的 Steam/主机 隐藏成就及肝度记录...",
-    "[P]ersistence - 测算你的赛博劳役抗性与爆肝指数",
-    "[L]ogic - 扫描底层决策逻辑：是机制懂哥还是玄学赌狗？",
-    "[A]ggression - 评估数字暴力倾向与排位降维打击欲",
-    "[Y]earning - 探测你的虚拟多巴胺受体与剧情沉浸底线",
-    "[DONE] 传感器校准完毕，准备直面真实的自己。",
-  ];
-
-  useEffect(() => {
-    if (bootSequence < sequences.length) {
-      const timer = setTimeout(() => {
-        setBootSequence((prev) => prev + 1);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [bootSequence]);
 
   const handleStart = () => {
     if (!agreed) return;
@@ -46,37 +39,13 @@ export default function LandingPage() {
       </div>
       <div className="relative z-1 w-full max-w-250 mx-auto">
         <div className="px-8 pt-10 pb-30 flex flex-col gap-8">
-          {/* 顶部：带有毛玻璃质感的终端区 */}
-          <div className="w-full max-w-2xl mx-auto bg-slate-900/60 backdrop-blur-md border border-slate-700/50 rounded-xl p-5 min-h-60 shadow-2xl shadow-emerald-900/5">
-            <div className="flex justify-between items-center mb-4 border-b border-slate-700/50 pb-3">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_5px_rgba(239,68,68,0.5)]"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-[0_0_5px_rgba(234,179,8,0.5)]"></div>
-                <div className="w-3 h-3 rounded-full bg-emerald-500/80 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></div>
-              </div>
-              <span className="text-xs font-mono text-slate-400 px-2 py-0.5 bg-slate-800 rounded">
-                PLAY_Engine_v1.0.exe
-              </span>
-            </div>
-
-            <div className="flex flex-col gap-1.5">
-              {sequences.map(
-                (text, index) =>
-                  index <= bootSequence && (
-                    <TerminalLine
-                      key={text}
-                      text={text}
-                      delay={0}
-                      isGlitch={index === sequences.length - 1}
-                    />
-                  ),
-              )}
-            </div>
-          </div>
-
-          {/* 核心内容区：当加载完毕后淡入显示 */}
+          <Terminal
+            title="PLAY_Engine_v1.0.exe"
+            logs={LOGS}
+            onComplete={() => setBooted(true)}
+          />
           <div
-            className={`transition-all duration-1000 ease-in-out flex flex-col items-center gap-8 ${bootSequence >= sequences.length ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className={`transition-all duration-1000 ease-in-out flex flex-col items-center gap-8 ${booted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
             <div className="text-center space-y-4 flex flex-col items-center">
               {/* 游戏玩家专属人格鉴定标签 */}
