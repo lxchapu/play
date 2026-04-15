@@ -54,7 +54,7 @@ export function Terminal({
     <div
       onDoubleClick={skip}
       className={cn(
-        "w-full max-w-2xl mx-auto bg-slate-900/60 backdrop-blur-md border rounded-xl p-5 min-h-60 shadow-2xl",
+        "w-full min-h-60 p-5 bg-slate-900/60 backdrop-blur-md border rounded-xl shadow-2xl",
         isErrorVariant
           ? "border-red-900/50 shadow-red-900/10"
           : "border-slate-700/50 shadow-emerald-900/5",
