@@ -20,9 +20,9 @@ export function TerminalLine({
   isActive = true,
   onComplete,
 }: TerminalLineProps) {
-  const [displayedText, setDisplayedText] = useState<string>("");
+  const [displayedText, setDisplayedText] = useState("");
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: 仅在挂载时执行一次
+  // biome-ignore lint/correctness/useExhaustiveDependencies: 仅依赖 isActive
   useEffect(() => {
     if (!isActive) {
       setDisplayedText(text);
@@ -30,17 +30,23 @@ export function TerminalLine({
     }
 
     let i = 0;
+    let completeTimer: number | undefined;
     const interval = window.setInterval(() => {
       i++;
       setDisplayedText(text.substring(0, i));
       if (i >= text.length) {
         window.clearInterval(interval);
-        if (onComplete) window.setTimeout(onComplete, 400);
+        if (onComplete && isActive) {
+          completeTimer = window.setTimeout(onComplete, 400);
+        }
       }
     }, typingSpeed);
 
-    return () => window.clearInterval(interval);
-  }, []);
+    return () => {
+      window.clearInterval(interval);
+      window.clearTimeout(completeTimer);
+    };
+  }, [isActive]);
 
   const renderText = () => {
     if (!highlight || !displayedText.includes(highlight)) {

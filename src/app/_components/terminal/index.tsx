@@ -100,15 +100,13 @@ export function Terminal({
           return (
             isVisible && (
               <TerminalLine
-                key={isFinished ? `done-${index}` : index}
+                key={log.text}
                 text={log.text}
                 highlight={log.highlight}
                 variant={log.variant}
                 typingSpeed={speed}
                 isActive={isCurrentLine && !isFinished}
-                onComplete={
-                  isCurrentLine && !isFinished ? handleLineComplete : undefined
-                }
+                onComplete={handleLineComplete}
               />
             )
           );
