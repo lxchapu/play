@@ -45,7 +45,7 @@ export default function LandingPage() {
         </div>
       </div>
       <div className="relative z-1 w-full max-w-250 mx-auto">
-        <div className="px-8 pt-10 pb-30 flex flex-col gap-10">
+        <div className="px-4 pt-4 pb-30 md:pt-10 md:px-8 flex flex-col gap-10">
           <Header />
           <div className="w-full max-w-2xl mx-auto animate-[fadeIn_0.5s_ease-out_both_0.2s]">
             <Terminal

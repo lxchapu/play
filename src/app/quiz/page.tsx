@@ -36,13 +36,8 @@ export default function QuizPage() {
     "universal"
   > | null>(null);
 
-  const {
-    queue,
-    totalQuestions,
-    answers,
-    answerQuestion,
-    generateQueue,
-  } = useQuiz();
+  const { queue, totalQuestions, answers, answerQuestion, generateQueue } =
+    useQuiz();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // 是否正在生成题目
@@ -160,7 +155,7 @@ export default function QuizPage() {
         </div>
       </div>
 
-      <div className="relative z-1 w-full max-w-250 mx-auto py-30 px-8">
+      <div className="relative z-1 w-full max-w-250 mx-auto pt-4 px-4 pb-20 md:pt-30 md:px-8">
         {phase === "genre" && <GenrePhase onGenreSelect={handleGenreSelect} />}
         {phase === "transition" && <Transition logs={logs} />}
         {phase === "quiz" && (

@@ -25,7 +25,7 @@ export default function NotFound() {
           </div>
 
           <h1
-            className="relative z-10 text-6xl md:text-8xl font-black tracking-tighter text-slate-100 drop-shadow-lg glitch-text-error mb-6"
+            className="relative z-10 text-5xl md:text-8xl font-black tracking-tighter text-slate-100 drop-shadow-lg glitch-text-error mb-6"
             data-text="404_NOT_FOUND"
           >
             404_NOT_FOUND

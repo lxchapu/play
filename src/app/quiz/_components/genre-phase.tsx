@@ -8,7 +8,7 @@ export const GenrePhase = ({
   onGenreSelect: (genreId: Exclude<Genre, "universal">) => void;
 }) => (
   <div className="w-full max-w-3xl mx-auto animate-[fadeIn_0.5s_ease-out]">
-    <div className="mb-8 border-l-4 border-emerald-500 pl-4 mt-12 md:mt-0">
+    <div className="mb-8 border-l-4 border-emerald-500 pl-4">
       <h2 className="text-sm font-mono text-emerald-400 mb-2">
         [ PHASE 0 : SENSOR CALIBRATION ]
       </h2>
