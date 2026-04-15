@@ -2,10 +2,9 @@
 
 import "./_styles/style.css";
 
-import { ArrowRight, Check, LoaderCircle, TriangleAlert } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { ArrowRight, Check, TriangleAlert } from "lucide-react";
 import { useState } from "react";
-import { cn } from "@/lib/cn";
+import { ActionButton } from "./_components/action-button";
 import { GithubLink } from "./_components/github-link";
 import { Terminal, type TerminalLog } from "./_components/terminal";
 
@@ -105,14 +104,7 @@ function Header() {
  * 操作区
  */
 function Action({ booted }: { booted: boolean }) {
-  const router = useRouter();
   const [agreed, setAgreed] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-
-  const handleStart = () => {
-    if (!agreed) return;
-    router.push("/quiz");
-  };
 
   return (
     <div className="flex flex-col items-center gap-6 w-full animate-[fadeIn_0.5s_ease-out_both_0.4s]">
@@ -145,51 +137,20 @@ function Action({ booted }: { booted: boolean }) {
         </label>
       </div>
 
-      <button
-        type="button"
-        onClick={handleStart}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-        disabled={!agreed || !booted}
-        className={cn(
-          "relative min-w-xs rounded-lg overflow-hidden transition-all duration-300 border",
-          agreed && booted
-            ? "bg-emerald-500 text-slate-950 border-transparent hover:bg-emerald-400 hover:scale-[1.05] shadow-[0_0_25px_rgba(16,185,129,0.4)]"
-            : "bg-slate-800 text-slate-500 border-slate-700/50 cursor-not-allowed",
-        )}
-      >
-        {booted && agreed && (
-          <div
-            className={cn(
-              "absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full",
-              isHovering && "animate-[shimmer_1.5s_infinite]",
-            )}
-          ></div>
-        )}
-        <div className="p-3.5 md:p-4 font-mono font-bold text-base md:text-lg flex items-center justify-center gap-2">
-          {!booted && (
-            <LoaderCircle className="text-slate-500 animate-spin" size={20} />
-          )}
-          <span
-            className={cn(
-              "relative",
-              isHovering && agreed && booted && "glitch-text",
-            )}
-            data-text="[ 接 入 终 端 ]"
-          >
-            {!booted
-              ? "[ 引 擎 挂 载 中 ... ]"
-              : !agreed
-                ? "[ 等 待 授 权 ]"
-                : isHovering
-                  ? "[ 接 入 终 端 ]"
-                  : "接 入 终 端"}
-          </span>
-          {booted && agreed && !isHovering && (
-            <ArrowRight className="size-4 md:size-5 animate-bounce-x" />
-          )}
-        </div>
-      </button>
+      <ActionButton
+        loading={!booted}
+        disabled={!(booted && agreed)}
+        label={
+          !booted
+            ? "[ 引 擎 挂 载 中 ... ]"
+            : !agreed
+              ? "[ 等 待 授 权 ]"
+              : "接 入 终 端"
+        }
+        hoverLabel="[ 接 入 终 端 ]"
+        href="/quiz"
+        icon={<ArrowRight className="my-icon animate-bounce-x" />}
+      />
     </div>
   );
 }

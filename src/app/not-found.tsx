@@ -1,10 +1,7 @@
-"use client";
-
 import "./_styles/not-found.css";
 
 import { RefreshCcw } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
+import { ActionButton } from "./_components/action-button";
 import { Terminal, type TerminalLog } from "./_components/terminal";
 
 const LOGS: TerminalLog[] = [
@@ -19,8 +16,6 @@ const LOGS: TerminalLog[] = [
 ];
 
 export default function NotFound() {
-  const [isHovering, setIsHovering] = useState(false);
-
   return (
     <div className="relative z-10 min-h-screen flex flex-col items-center justify-center">
       <div className="w-full max-w-2xl p-4 flex flex-col items-center gap-10">
@@ -46,26 +41,11 @@ export default function NotFound() {
 
         <Terminal title="SYS_DIAGNOSTIC_ERR" logs={LOGS} variant="error" />
 
-        <div className="animate-[fadeIn_0.5s_ease-out_both_4s]">
-          <Link
-            href="/"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-            className="relative inline-block px-10 py-4 font-mono font-bold text-lg tracking-widest rounded-lg overflow-hidden transition-all duration-300 bg-emerald-500 text-slate-950 hover:bg-emerald-400 hover:scale-[1.02] shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer"
-          >
-            <span
-              className={`relative z-10 flex items-center justify-center gap-2 ${isHovering ? "glitch-text" : ""}`}
-              data-text="[ 强 制 重 启 / REBOOT ]"
-            >
-              {"[ 强 制 重 启 / REBOOT ]"}
-              {!isHovering && (
-                <RefreshCcw size={20} className="animate-pulse" />
-              )}
-            </span>
-            {/* 按钮扫描光效 */}
-            <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]"></div>
-          </Link>
-        </div>
+        <ActionButton
+          label="[ 强 制 重 启 / REBOOT ]"
+          href="/"
+          icon={<RefreshCcw className="my-icon animate-pulse" />}
+        />
       </div>
     </div>
   );
