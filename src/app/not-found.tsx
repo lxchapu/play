@@ -6,11 +6,11 @@ import { Terminal, type TerminalLog } from "./_components/terminal";
 
 const LOGS: TerminalLog[] = [
   { text: "[FATAL] ERROR_404: 目标坐标未在神经矩阵中注册。", variant: "error" },
-  { text: "[SCAN] 正在追踪你的访问足迹..." },
-  { text: "[WARN] 警告：你已偏离主干道，触碰到了系统的物理边界。" },
-  { text: "[SYS] 连个网页都能走丢，建议在现实世界里出门多带两个导航。" },
+  { text: "[SCAN] 正在逆向追踪访问足迹..." },
+  { text: "[WARN] 试图在此触发隐藏彩蛋？很遗憾，你的意识已游离于观测边界之外。" },
+  { text: "[SYS] 在单干线链路中发生迷失，已作为「重度空间认知障碍」写入档案。" },
   {
-    text: "[ACTION] 神经链路即将熔断，请立即执行紧急重启指令。",
+    text: "[ACTION] 精神污染阈值即将过载，请立即执行坐标重置指令。",
     variant: "error",
   },
 ];
@@ -42,7 +42,7 @@ export default function NotFound() {
         <Terminal title="SYS_DIAGNOSTIC_ERR" logs={LOGS} variant="error" />
 
         <ActionButton
-          label="[ 强 制 重 启 / REBOOT ]"
+          label="[ 重 置 坐 标 / RESET ]"
           href="/"
           icon={<RefreshCcw className="my-icon animate-pulse" />}
         />

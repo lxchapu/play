@@ -128,11 +128,11 @@ function Action({ booted }: { booted: boolean }) {
             </div>
           </div>
           <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors leading-relaxed">
-            本人已知晓本系统具有极强的冒犯性与“精神解剖”属性。本人自愿卸下“高端玩家”的虚荣伪装，同意系统提取我最真实、最破防的赛博病历，并
+            本人已知晓本终端具有极强的冒犯性与“精神解剖”属性。本人自愿解除“高端玩家”的伪装外骨骼，授权系统提取我最真实、最破防的赛博病历，并
             <strong className="text-emerald-400 font-normal">
-              已做好被当场处刑的心理准备
+              已做好被公开处刑的心理准备
             </strong>
-            。若因诊断结果引发重度红温或电子阳痿加剧，本诊所概不负责。
+            。若因诊断报告引发重度红温或“电子阳痿”加剧，本终端将依据豁免协议拒绝提供任何情绪安抚。
           </span>
         </label>
       </div>
