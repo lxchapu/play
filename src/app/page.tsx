@@ -5,6 +5,7 @@ import "./_styles/style.css";
 import { ArrowRight, Check, TriangleAlert } from "lucide-react";
 import { useState } from "react";
 import { ActionButton } from "./_components/action-button";
+import { ComplianceDisclaimer } from "./_components/compliance-disclaimer";
 import { GithubLink } from "./_components/github-link";
 import { Terminal, type TerminalLog } from "./_components/terminal";
 
@@ -45,7 +46,7 @@ export default function LandingPage() {
         </div>
       </div>
       <div className="relative z-1 w-full max-w-250 mx-auto">
-        <div className="px-4 pt-4 pb-30 md:pt-10 md:px-8 flex flex-col gap-10">
+        <div className="px-4 pt-4 md:pt-10 md:px-8 flex flex-col gap-10">
           <Header />
           <div className="w-full max-w-2xl mx-auto animate-[fadeIn_0.5s_ease-out_both_0.2s]">
             <Terminal
@@ -57,6 +58,7 @@ export default function LandingPage() {
           <Action booted={booted} />
         </div>
       </div>
+      <ComplianceDisclaimer />
     </>
   );
 }

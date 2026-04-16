@@ -7,6 +7,7 @@ import { notFound, useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { PERSONALITIES } from "@/data/personalities";
 import { decodeResult } from "@/logic/result-codec";
+import { ComplianceDisclaimer } from "../_components/compliance-disclaimer";
 import { GithubLink } from "../_components/github-link";
 import { ActionBar } from "./_components/action-bar";
 import { ReportCard } from "./_components/report-card";
@@ -69,7 +70,7 @@ function ResultContent() {
           <GithubLink />
         </div>
       </div>
-      <div className="relative z-1 w-full max-w-lg mx-auto p-8 pb-12">
+      <div className="relative z-1 w-full max-w-lg mx-auto px-4 pt-4">
         <ReportCard
           reportRef={reportRef}
           personality={p}
@@ -82,6 +83,7 @@ function ResultContent() {
           onRestart={handleRestart}
         />
       </div>
+      <ComplianceDisclaimer />
     </>
   );
 }
