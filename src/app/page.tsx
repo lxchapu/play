@@ -11,26 +11,26 @@ import { Terminal, type TerminalLog } from "./_components/terminal";
 const LOGS: TerminalLog[] = [
   { text: "[SYS_INIT] 正在挂载 P·L·A·Y 赛博病理学剖析引擎..." },
   {
-    text: "[WARN] 正在绕过自尊防火墙，强制提取 Steam/主机 吃灰库与历史破防录像...",
+    text: "[WARN] 正在暴力破解自尊防火墙，越权提取 Steam 吃灰库存与历史破防录像...",
   },
   {
-    text: "[P]ersistence - 测算赛博劳役抗性：现实打工，游戏里继续当免费黑奴？",
+    text: "[P]ersistence - 测算劳役抗性：已统计“免费帕鲁”服役工时和“赛博坐牢”记录。",
     highlight: "P",
   },
   {
-    text: "[L]ogic - 扫描底层防御机制：是硬核机制懂哥，还是纯血玄学赌狗？",
+    text: "[L]ogic - 底层认知扫描启动，检索“机制过载”与“玄学抽卡”并发指征中...",
     highlight: "L",
   },
   {
-    text: "[A]ggression - 评估数字暴力倾向：顺风局装神指点江山，逆风局光速尽孝？",
+    text: "[A]ggression - 情绪雷达追踪开启，已拦截“指点江山”与“小嘴抹蜜”异常频段。",
     highlight: "A",
   },
   {
-    text: "[Y]earning - 探测虚拟多巴胺受体：强度焦虑晚期，还是赛博情感难民？",
+    text: "[Y]earning - 正在探测多巴胺受体：深度锁定“强度焦虑”与“情感难民”晚期病灶。",
     highlight: "Y",
   },
   {
-    text: "[FATAL] 虚伪外骨骼已卸载。请准备直面惨淡的真实。",
+    text: "[FATAL] 虚伪外骨骼已剥离。请准备直面惨淡的真实。",
     variant: "error",
   },
 ];
@@ -72,12 +72,12 @@ function Header() {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
-        高危玩家精神病理学临床诊断
+        16 型游戏玩家人格诊断
       </div>
 
       <div className="font-mono text-sm sm:text-base text-slate-400 font-medium tracking-wide">
         <span className="line-through decoration-slate-500/70 decoration-2 opacity-50 transition-opacity hover:opacity-100 cursor-default">
-          虚伪的 MBTI 已经过时
+          虚伪的 MBTI 社交已经过时
         </span>
         <span className="mx-3 text-emerald-500/40 italic">{"///"}</span>
         <span className="text-emerald-400 font-bold tracking-widest drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse">
@@ -130,7 +130,7 @@ function Action({ booted }: { booted: boolean }) {
           <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors leading-relaxed">
             本人已知晓本系统具有极强的冒犯性与“精神解剖”属性。本人自愿卸下“高端玩家”的虚荣伪装，同意系统提取我最真实、最破防的赛博病历，并
             <strong className="text-emerald-400 font-normal">
-              已做好被戳中脊梁骨的心理准备
+              已做好被当场处刑的心理准备
             </strong>
             。若因诊断结果引发重度红温或电子阳痿加剧，本诊所概不负责。
           </span>
