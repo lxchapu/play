@@ -44,6 +44,7 @@ export const SOLO_QUESTIONS: Question[] = [
       {
         text: "往宝箱方向走了几步，嫌太远又放弃了，任务也放弃了。",
         weight: { p: 25, a: 15, y: 10 },
+        babyProbability: 0.7,
       },
     ],
   },
@@ -152,6 +153,7 @@ export const SOLO_QUESTIONS: Question[] = [
       {
         text: "一眼没看，直接出门去找BOSS。",
         weight: { A: 20, p: 20, Y: 10 },
+        babyProbability: 0.8,
       },
     ],
   },
@@ -231,8 +233,9 @@ export const SOLO_QUESTIONS: Question[] = [
         weight: { y: 25, P: 20, L: 10 },
       },
       {
-        text: "用的默认脸，从没进过捏脸界面。",
+        text: "用了默认脸，从没进过捏脸界面。",
         weight: { Y: 25, p: 20, A: 15 },
+        babyProbability: 0.7,
       },
       {
         text: "故意捏了个很丑的脸，专门用来截搞笑图。",

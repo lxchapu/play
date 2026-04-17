@@ -15,6 +15,7 @@ export interface Option {
   libyProbability?: number;
   mamaProbability?: number;
   archProbability?: number;
+  babyProbability?: number;
 }
 
 export type Genre = "universal" | "solo" | "gacha" | "pvp" | "variety";

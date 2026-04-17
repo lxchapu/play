@@ -15,6 +15,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       {
         text: "关了电脑躺床上刷手机了。",
         weight: { p: 30, a: 20, y: 15 },
+        babyProbability: 0.7,
       },
       {
         text: "打开了一个已经通关了三次的老游戏。",
@@ -36,6 +37,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       {
         text: "卸载了。",
         weight: { p: 30, L: 20, Y: 15 },
+        babyProbability: 0.7,
       },
       {
         text: "继续玩下去了，虽然觉得后面应该也就这样。",
@@ -104,6 +106,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       {
         text: "全部最小化，打开了短视频APP。",
         weight: { p: 30, a: 25, y: 15 },
+        babyProbability: 0.7,
       },
       {
         text: "关了其中四个，只留了一个在玩。",
@@ -226,6 +229,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       {
         text: "玩了二十分钟就删了。",
         weight: { p: 30, A: 20, Y: 15 },
+        babyProbability: 0.8,
       },
       {
         text: "硬撑了二十个小时熬过了前期。",

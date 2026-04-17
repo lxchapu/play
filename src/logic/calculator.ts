@@ -9,6 +9,7 @@ export interface HiddenPersonalityScores {
   liby: number;
   mama: number;
   arch: number;
+  baby: number;
 }
 
 export interface CalculationResult {
@@ -30,7 +31,7 @@ export function calculateScores(
 ): CalculationResult {
   const maxScores = zeroScores();
   const userScores = zeroScores();
-  const h: HiddenPersonalityScores = { hack: 0, liby: 0, mama: 0, arch: 0 };
+  const h: HiddenPersonalityScores = { hack: 0, liby: 0, mama: 0, arch: 0, baby: 0 };
 
   for (const q of queue) {
     const selectedIdx = answers[q.id];
@@ -59,6 +60,8 @@ export function calculateScores(
       h.mama += selectedOpt.mamaProbability;
     if (selectedOpt.archProbability != null)
       h.arch += selectedOpt.archProbability;
+    if (selectedOpt.babyProbability != null)
+      h.baby += selectedOpt.babyProbability;
   }
 
   // 各维度实际分数 = 用户得分 / 理论最高分 * 100

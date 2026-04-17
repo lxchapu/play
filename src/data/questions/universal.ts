@@ -11,6 +11,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
       {
         text: "疯狂按跳过，直到屏幕上出现可以操作的角色。",
         weight: { Y: 25, p: 20, A: 15 },
+        babyProbability: 0.7,
       },
       {
         text: "逐字读完每一行，甚至打开设置把字体调大了再看一遍。",
