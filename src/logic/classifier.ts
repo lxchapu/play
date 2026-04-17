@@ -6,7 +6,7 @@ import type { Personality, Scores } from "@/data/types";
 import type { HiddenPersonalityScores } from "./calculator";
 
 /** 隐藏人格触发阈值 */
-const HIDDEN_THRESHOLD = 1.0;
+const HIDDEN_THRESHOLD = 1.2;
 
 /**
  * 根据维度得分判定 4 字符人格 code（如 "PLAY"、"play"）
@@ -43,6 +43,8 @@ export function classifyPersonality(
   // 隐藏人格优先判定
   if (hidden.liby >= HIDDEN_THRESHOLD) return resolve("LIBY");
   if (hidden.hack >= HIDDEN_THRESHOLD) return resolve("HACK");
+  if (hidden.arch >= HIDDEN_THRESHOLD) return resolve("ARCH");
+  if (hidden.mama >= HIDDEN_THRESHOLD) return resolve("MAMA");
 
   // 标准 16 型判定
   return resolve(buildCode(scores));

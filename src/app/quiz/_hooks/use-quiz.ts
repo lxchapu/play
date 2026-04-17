@@ -13,10 +13,6 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-function pickRandom<T>(arr: T[], count: number): T[] {
-  return shuffle(arr).slice(0, count);
-}
-
 export const useQuiz = () => {
   // 题目队列
   const [queue, setQueue] = useState<Question[]>([]);
@@ -29,15 +25,12 @@ export const useQuiz = () => {
 
   /**
    * 根据游戏类型生成题目队列
-   * 通用题 10 道 + 类型题 8 道，打乱顺序
+   * 通用题 + 类型题，打乱顺序
    */
   const generateQueue = useCallback((genre: Exclude<Genre, "universal">) => {
     const universalPool = QUESTIONS_POOLS.universal;
     const genrePool = QUESTIONS_POOLS[genre];
-    const q = shuffle([
-      ...pickRandom(universalPool, 10),
-      ...pickRandom(genrePool, 8),
-    ]);
+    const q = shuffle([...universalPool, ...genrePool]);
     setQueue(q);
     setAnswers({});
   }, []);

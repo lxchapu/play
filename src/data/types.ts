@@ -13,7 +13,8 @@ export interface Option {
   // 扩展隐藏人格概率
   hackProbability?: number;
   libyProbability?: number;
-  smurProbability?: number;
+  mamaProbability?: number;
+  archProbability?: number;
 }
 
 export type Genre = "universal" | "solo" | "gacha" | "pvp" | "variety";
