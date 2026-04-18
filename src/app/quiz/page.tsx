@@ -56,7 +56,10 @@ export default function QuizPage() {
     let logCount = 0;
     const shuffledLogs = shuffle(TRANSITION_LOGS);
     const logInterval = setInterval(() => {
-      setLogs((prev) => [...prev, shuffledLogs[logCount % shuffledLogs.length]]);
+      setLogs((prev) => [
+        ...prev,
+        shuffledLogs[logCount % shuffledLogs.length],
+      ]);
       logCount++;
       if (logCount >= 3 && !isGenerating) {
         clearInterval(logInterval);

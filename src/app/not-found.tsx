@@ -7,8 +7,12 @@ import { Terminal, type TerminalLog } from "./_components/terminal";
 const LOGS: TerminalLog[] = [
   { text: "[FATAL] ERROR_404: 目标坐标未在神经矩阵中注册。", variant: "error" },
   { text: "[SCAN] 正在逆向追踪访问足迹..." },
-  { text: "[WARN] 试图在此触发隐藏彩蛋？很遗憾，你的意识已游离于观测边界之外。" },
-  { text: "[SYS] 在单干线链路中发生迷失，已作为「重度空间认知障碍」写入档案。" },
+  {
+    text: "[WARN] 试图在此触发隐藏彩蛋？很遗憾，你的意识已游离于观测边界之外。",
+  },
+  {
+    text: "[SYS] 在单干线链路中发生迷失，已作为「重度空间认知障碍」写入档案。",
+  },
   {
     text: "[ACTION] 精神污染阈值即将过载，请立即执行坐标重置指令。",
     variant: "error",

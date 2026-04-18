@@ -30,8 +30,7 @@ export const PVP_QUESTIONS: Question[] = [
     id: "A2",
     genre: "pvp",
     title: "关于「轮椅」的骨气",
-    question:
-      "你最拿手的英雄被削成废铁，排位里全是无脑超模的套路。你：",
+    question: "你最拿手的英雄被削成废铁，排位里全是无脑超模的套路。你：",
     options: [
       {
         text: "选了那个超模英雄进了下一把。",
@@ -92,8 +91,7 @@ export const PVP_QUESTIONS: Question[] = [
     id: "A5",
     genre: "pvp",
     title: "关于「炸鱼」的快感",
-    question:
-      "大号被打自闭了，借了个青铜小号去低分段玩，把对面杀穿了。你：",
+    question: "大号被打自闭了，借了个青铜小号去低分段玩，把对面杀穿了。你：",
     options: [
       {
         text: "在公屏打字，亮了你的段位标志。",
@@ -134,8 +132,7 @@ export const PVP_QUESTIONS: Question[] = [
     id: "A7",
     genre: "pvp",
     title: "关于「指挥权」的崩溃",
-    question:
-      "局势大逆风，你一直在发信号指挥，但队友各玩各的根本不理你。你：",
+    question: "局势大逆风，你一直在发信号指挥，但队友各玩各的根本不理你。你：",
     options: [
       {
         text: "冲向了对面人群，也不管能不能打过。",
@@ -156,8 +153,7 @@ export const PVP_QUESTIONS: Question[] = [
     id: "A8",
     genre: "pvp",
     title: "关于「甩锅」的艺术",
-    question:
-      "团战你走位失误被秒了，导致一波被推平。基地爆炸时你说的是：",
+    question: "团战你走位失误被秒了，导致一波被推平。基地爆炸时你说的是：",
     options: [
       {
         text: "“这把延迟太高了。”",
@@ -217,8 +213,7 @@ export const PVP_QUESTIONS: Question[] = [
     id: "A11",
     genre: "pvp",
     title: "关于「K头」的愤怒",
-    question:
-      "你把对面残血打到丝血，队友路过平A抢了你的人头。你：",
+    question: "你把对面残血打到丝血，队友路过平A抢了你的人头。你：",
     options: [
       {
         text: "狂点了好几下该队友的头像，又把他正在打的兵抢了两个。",
@@ -299,8 +294,7 @@ export const PVP_QUESTIONS: Question[] = [
     id: "A15",
     genre: "pvp",
     title: "关于「补位」的怨念",
-    question:
-      "你想玩输出位，结果队友秒选了。为了阵容你只能补辅助。你：",
+    question: "你想玩输出位，结果队友秒选了。为了阵容你只能补辅助。你：",
     options: [
       {
         text: "整局都在发信号提示C位走位有问题。",
