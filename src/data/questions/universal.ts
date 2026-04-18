@@ -11,7 +11,6 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
       {
         text: "疯狂按跳过，直到屏幕上出现可以操作的角色。",
         weight: { Y: 25, p: 20, A: 15 },
-        babyProbability: 0.7,
       },
       {
         text: "逐字读完每一行，甚至打开设置把字体调大了再看一遍。",
@@ -50,7 +49,8 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
     id: "U3",
     genre: "universal",
     title: "关于「活人」的折磨",
-    question: "组队匹配到一个怨种队友，全程引怪、空大、送人头。你的第一反应是：",
+    question:
+      "组队匹配到一个怨种队友，全程引怪、空大、送人头。你的第一反应是：",
     options: [
       {
         text: "打开聊天框打了一长串字，然后按了举报。",
@@ -99,7 +99,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
       {
         text: "又买了五个，虽然你知道上一个买的到现在还没下载过。",
         weight: { p: 30, y: 20, l: 15 },
-        libyProbability: 0.9,
+        hamsProbability: 0.9,
       },
       {
         text: "逐个对比评测和价格，最后只买了一款确定会玩的。",
@@ -156,8 +156,7 @@ export const UNIVERSAL_QUESTIONS: Question[] = [
     genre: "universal",
     isBranch: true,
     title: "关于「修改器」的用法",
-    question:
-      "你找到了一个可以一键无敌的修改器，下载之后你：",
+    question: "你找到了一个可以一键无敌的修改器，下载之后你：",
     options: [
       {
         text: "直接用了，一口气推了十个存档点。",

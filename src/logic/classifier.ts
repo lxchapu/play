@@ -41,8 +41,7 @@ export function classifyPersonality(
   hidden: HiddenPersonalityScores,
 ): Personality {
   // 隐藏人格优先判定
-  if (hidden.baby >= HIDDEN_THRESHOLD) return resolve("BABY");
-  if (hidden.liby >= HIDDEN_THRESHOLD) return resolve("LIBY");
+  if (hidden.hams >= HIDDEN_THRESHOLD) return resolve("HAMS");
   if (hidden.hack >= HIDDEN_THRESHOLD) return resolve("HACK");
   if (hidden.arch >= HIDDEN_THRESHOLD) return resolve("ARCH");
   if (hidden.mama >= HIDDEN_THRESHOLD) return resolve("MAMA");

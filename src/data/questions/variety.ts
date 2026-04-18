@@ -9,13 +9,11 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V1",
     genre: "variety",
     title: "关于「阳痿」的晚期",
-    question:
-      "难得的周末，你打开电脑面对库里几百个图标，选了半小时。最终你：",
+    question: "难得的周末，你打开电脑面对库里几百个图标，选了半小时。最终你：",
     options: [
       {
         text: "关了电脑躺床上刷手机了。",
         weight: { p: 30, a: 20, y: 15 },
-        babyProbability: 0.7,
       },
       {
         text: "打开了一个已经通关了三次的老游戏。",
@@ -31,13 +29,11 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V2",
     genre: "variety",
     title: "关于「看透」的傲慢",
-    question:
-      "新游戏玩了15分钟，你觉得已经完全看透了它的核心玩法循环。你：",
+    question: "新游戏玩了15分钟，你觉得已经完全看透了它的核心玩法循环。你：",
     options: [
       {
         text: "卸载了。",
         weight: { p: 30, L: 20, Y: 15 },
-        babyProbability: 0.7,
       },
       {
         text: "继续玩下去了，虽然觉得后面应该也就这样。",
@@ -53,8 +49,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V3",
     genre: "variety",
     title: "关于「云端」的妥协",
-    question:
-      "最近爆火了一款硬核游戏，你也想玩，但打开就觉得困。你：",
+    question: "最近爆火了一款硬核游戏，你也想玩，但打开就觉得困。你：",
     options: [
       {
         text: "在视频网站看了三个小时的通关流程视频。",
@@ -74,8 +69,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V4",
     genre: "variety",
     title: "关于「嘴硬」的广度",
-    question:
-      "有人说你玩了几百款游戏但没有一个精通的。你：",
+    question: "有人说你玩了几百款游戏但没有一个精通的。你：",
     options: [
       {
         text: "“广度也是实力。”",
@@ -86,7 +80,7 @@ export const VARIETY_QUESTIONS: Question[] = [
         weight: { L: 30, A: 20, P: 10 },
       },
       {
-        text:"点了点头没说话。",
+        text: "点了点头没说话。",
         weight: { a: 25, p: 20, y: 15 },
       },
     ],
@@ -106,7 +100,6 @@ export const VARIETY_QUESTIONS: Question[] = [
       {
         text: "全部最小化，打开了短视频APP。",
         weight: { p: 30, a: 25, y: 15 },
-        babyProbability: 0.7,
       },
       {
         text: "关了其中四个，只留了一个在玩。",
@@ -118,8 +111,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V6",
     genre: "variety",
     title: "关于「包工头」的觉醒",
-    question:
-      "生存游戏的主线是末日求生，但你刚解锁了高级建材。你：",
+    question: "生存游戏的主线是末日求生，但你刚解锁了高级建材。你：",
     options: [
       {
         text: "建房子建了很久，直到下线都没去过主线区域。",
@@ -160,8 +152,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V8",
     genre: "variety",
     title: "关于「背叛」的出轨",
-    question:
-      "一款RPG正玩到高潮，期待已久的另一部大作发售了。你：",
+    question: "一款RPG正玩到高潮，期待已久的另一部大作发售了。你：",
     options: [
       {
         text: "立刻下载了新游戏，RPG再也没打开过。",
@@ -181,8 +172,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V9",
     genre: "variety",
     title: "关于「履历」的冰冷",
-    question:
-      "深夜看你库里有一百个游戏，大部分游玩时长都是2小时左右。你：",
+    question: "深夜看你库里有一百个游戏，大部分游玩时长都是2小时左右。你：",
     options: [
       {
         text: "觉得自己涉猎广泛挺好的。",
@@ -207,7 +197,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       {
         text: "批量添加到库，一个都没下载。",
         weight: { p: 30, y: 20, l: 15 },
-        libyProbability: 0.9,
+        hamsProbability: 0.9,
       },
       {
         text: "列了个表挑着打，专挑那些贵的和短的。",
@@ -223,13 +213,11 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V11",
     genre: "variety",
     title: "关于「慢热」的诅咒",
-    question:
-      "朋友推荐了一款游戏：“前20小时比较坐牢，后面很好玩。”你：",
+    question: "朋友推荐了一款游戏：“前20小时比较坐牢，后面很好玩。”你：",
     options: [
       {
         text: "玩了二十分钟就删了。",
         weight: { p: 30, A: 20, Y: 15 },
-        babyProbability: 0.8,
       },
       {
         text: "硬撑了二十个小时熬过了前期。",
@@ -245,8 +233,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V12",
     genre: "variety",
     title: "关于「跨界」的排斥",
-    question:
-      "你正在玩的休闲种田游戏更新加入了PVP掠夺模式。你：",
+    question: "你正在玩的休闲种田游戏更新加入了PVP掠夺模式。你：",
     options: [
       {
         text: "换了套PVP配装，开始去抢别人的资源。",
@@ -288,8 +275,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     id: "V14",
     genre: "variety",
     title: "关于「节奏」的吃瓜",
-    question:
-      "你最近在玩的一款游戏因为某个改动被全网差评。你：",
+    question: "你最近在玩的一款游戏因为某个改动被全网差评。你：",
     options: [
       {
         text: "也去商店打了一星评价，虽然你其实没怎么玩过。",
@@ -314,7 +300,7 @@ export const VARIETY_QUESTIONS: Question[] = [
       {
         text: "想着以后有空了一定会玩的。",
         weight: { p: 35, l: 15 },
-        libyProbability: 0.9,
+        hamsProbability: 0.9,
       },
       {
         text: "这样群里聊什么游戏你都接得上话。",
@@ -331,8 +317,7 @@ export const VARIETY_QUESTIONS: Question[] = [
     genre: "variety",
     isBranch: true,
     title: "关于「多开」的收成",
-    question:
-      "你在五个游戏窗口之间切了一小时。这一个小时的实际成果是：",
+    question: "你在五个游戏窗口之间切了一小时。这一个小时的实际成果是：",
     options: [
       {
         text: "每个游戏都推进了一点，五个进度条都在动。",

@@ -100,7 +100,6 @@ export const GACHA_QUESTIONS: Question[] = [
       {
         text: "一直按着跳过键，直到出现领取奖励的界面。",
         weight: { Y: 30, p: 25, L: 10 },
-        babyProbability: 0.7,
       },
       {
         text: "备了杯水，靠在椅背上从头看到尾。",
@@ -192,7 +191,7 @@ export const GACHA_QUESTIONS: Question[] = [
       {
         text: "只有出新角色公告的时候才上线，抽完就下线。",
         weight: { p: 30, A: 20, Y: 10 },
-        libyProbability: 0.9,
+        hamsProbability: 0.9,
       },
     ],
   },
@@ -236,7 +235,6 @@ export const GACHA_QUESTIONS: Question[] = [
       {
         text: "用送的四个角色开始了游戏。",
         weight: { l: 25, y: 20, a: 15 },
-        babyProbability: 0.7,
       },
     ],
   },
@@ -320,7 +318,6 @@ export const GACHA_QUESTIONS: Question[] = [
       {
         text: "关机睡觉了。",
         weight: { a: 25, p: 25, y: 20 },
-        babyProbability: 0.7,
       },
     ],
   },
@@ -351,8 +348,7 @@ export const GACHA_QUESTIONS: Question[] = [
     genre: "gacha",
     isBranch: true,
     title: "关于「上头」的细节",
-    question:
-      "按下充值按钮的那一刻，你的状态是：",
+    question: "按下充值按钮的那一刻，你的状态是：",
     options: [
       {
         text: "脑子里什么都没想，手比脑子快。",

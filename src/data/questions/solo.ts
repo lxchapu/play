@@ -9,8 +9,7 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S1",
     genre: "solo",
     title: "关于「道德」的背叛",
-    question:
-      "亲手干掉那个救过你的NPC就能拿到全服最强神装。你：",
+    question: "亲手干掉那个救过你的NPC就能拿到全服最强神装。你：",
     options: [
       {
         text: "动手了，拿了神装，继续往下推剧情。",
@@ -30,8 +29,7 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S2",
     genre: "solo",
     title: "关于「舔图」的强迫",
-    question:
-      "护送任务限时倒计时最后1分钟，雷达边缘闪过一个金色宝箱。此时你：",
+    question: "护送任务限时倒计时最后1分钟，雷达边缘闪过一个金色宝箱。此时你：",
     options: [
       {
         text: "拐弯去开了宝箱，任务失败了重新来。",
@@ -44,7 +42,6 @@ export const SOLO_QUESTIONS: Question[] = [
       {
         text: "往宝箱方向走了几步，嫌太远又放弃了，任务也放弃了。",
         weight: { p: 25, a: 15, y: 10 },
-        babyProbability: 0.7,
       },
     ],
   },
@@ -52,8 +49,7 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S3",
     genre: "solo",
     title: "关于「主线」的搁置",
-    question:
-      "老国王求你去打恶龙，但路边酒馆可以玩小游戏。你：",
+    question: "老国王求你去打恶龙，但路边酒馆可以玩小游戏。你：",
     options: [
       {
         text: "在酒馆里坐了一下午。",
@@ -96,8 +92,7 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S5",
     genre: "solo",
     title: "关于「白金」的诅咒",
-    question:
-      "成就98%，最后一个需要收集500个散落在地图各地的物品。你：",
+    question: "成就98%，最后一个需要收集500个散落在地图各地的物品。你：",
     options: [
       {
         text: "开着攻略地图一个个去找。",
@@ -118,8 +113,7 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S6",
     genre: "solo",
     title: "关于「怜悯」的侮辱",
-    question:
-      "你被同一个关卡虐了三天，系统弹出提示“是否切换简单模式”。你：",
+    question: "你被同一个关卡虐了三天，系统弹出提示“是否切换简单模式”。你：",
     options: [
       {
         text: "选了“否”，重新读档又来了一遍。",
@@ -153,7 +147,6 @@ export const SOLO_QUESTIONS: Question[] = [
       {
         text: "一眼没看，直接出门去找BOSS。",
         weight: { A: 20, p: 20, Y: 10 },
-        babyProbability: 0.8,
       },
     ],
   },
@@ -182,13 +175,12 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S9",
     genre: "solo",
     title: "关于「仓鼠病」的绝症",
-    question:
-      "最终BOSS战，你快死了，背包里有99瓶瞬间回满血的药。你：",
+    question: "最终BOSS战，你快死了，背包里有99瓶瞬间回满血的药。你：",
     options: [
       {
         text: "一口都没喝，硬撑着打赢了BOSS。",
         weight: { P: 25, y: 20, L: 15 },
-        libyProbability: 0.8,
+        hamsProbability: 0.8,
       },
       {
         text: "像喝水一样灌下去，打完BOSS发现剩了不到5瓶。",
@@ -204,8 +196,7 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S10",
     genre: "solo",
     title: "关于「贤者时间」的降临",
-    question:
-      "伴随着片尾曲，你完美通关了一部玩了上百小时的大作。现在你：",
+    question: "伴随着片尾曲，你完美通关了一部玩了上百小时的大作。现在你：",
     options: [
       {
         text: "开启了二周目最高难度。",
@@ -235,7 +226,6 @@ export const SOLO_QUESTIONS: Question[] = [
       {
         text: "用了默认脸，从没进过捏脸界面。",
         weight: { Y: 25, p: 20, A: 15 },
-        babyProbability: 0.7,
       },
       {
         text: "故意捏了个很丑的脸，专门用来截搞笑图。",
@@ -247,8 +237,7 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S12",
     genre: "solo",
     title: "关于「潜行」的破产",
-    question:
-      "玩潜行暗杀关卡，不小心踢翻了桶，警报响了，一群人朝你跑来。你：",
+    question: "玩潜行暗杀关卡，不小心踢翻了桶，警报响了，一群人朝你跑来。你：",
     options: [
       {
         text: "立刻读了最近的存档重来。",
@@ -278,7 +267,7 @@ export const SOLO_QUESTIONS: Question[] = [
       {
         text: "一步一步挪回去，一件东西都没舍得扔。",
         weight: { P: 30, y: 20, a: 10 },
-        libyProbability: 0.8,
+        hamsProbability: 0.8,
       },
       {
         text: "用了控制台指令改了负重上限。",
@@ -291,8 +280,7 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S14",
     genre: "solo",
     title: "关于「迷路」的尊严",
-    question:
-      "游戏没有地图，你在迷宫里绕了两个小时还没找到路。你：",
+    question: "游戏没有地图，你在迷宫里绕了两个小时还没找到路。你：",
     options: [
       {
         text: "拿出手机搜了攻略路线图。",
@@ -312,8 +300,7 @@ export const SOLO_QUESTIONS: Question[] = [
     id: "S15",
     genre: "solo",
     title: "关于「捡尸」的恐惧",
-    question:
-      "魂类游戏，身上带着巨款摔死了，需要跑半个地图去捡回。你：",
+    question: "魂类游戏，身上带着巨款摔死了，需要跑半个地图去捡回。你：",
     options: [
       {
         text: "莽着跑过去，半路又被怪打死了一次，彻底红温。",

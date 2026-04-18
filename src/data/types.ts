@@ -12,10 +12,9 @@ export interface Option {
   triggerBranchId?: string;
   // 扩展隐藏人格概率
   hackProbability?: number;
-  libyProbability?: number;
+  hamsProbability?: number;
   mamaProbability?: number;
   archProbability?: number;
-  babyProbability?: number;
 }
 
 export type Genre = "universal" | "solo" | "gacha" | "pvp" | "variety";
