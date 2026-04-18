@@ -4,6 +4,7 @@ import "./_styles/style.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Genre } from "@/data/types";
+import { shuffle } from "@/lib/shuffle";
 import { calculateScores } from "@/logic/calculator";
 import { classifyPersonality } from "@/logic/classifier";
 import { encodeResult } from "@/logic/result-codec";
@@ -53,11 +54,9 @@ export default function QuizPage() {
 
   const startTransitionLogs = () => {
     let logCount = 0;
+    const shuffledLogs = shuffle(TRANSITION_LOGS);
     const logInterval = setInterval(() => {
-      setLogs((prev) => [
-        ...prev,
-        TRANSITION_LOGS[Math.floor(Math.random() * TRANSITION_LOGS.length)],
-      ]);
+      setLogs((prev) => [...prev, shuffledLogs[logCount % shuffledLogs.length]]);
       logCount++;
       if (logCount >= 3 && !isGenerating) {
         clearInterval(logInterval);
