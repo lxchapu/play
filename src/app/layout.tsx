@@ -4,11 +4,11 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "P·L·A·Y 游戏人格诊断系统 | 测算你的赛博病历",
+    default: "P·L·A·Y 人格诊断终端 | 解剖你的玩家人格",
     template: "%s | P·L·A·Y",
   },
   description:
-    "虚伪的 MBTI 已经过时，SBTI 赛博变体已部署。通过 4 个维度解剖你的真实游戏人格。敢来直面吃灰的游戏库和凌晨的连败记录，查收你的专属赛博病历吗？",
+    "虚伪的 MBTI 社交已经过时，SBTI 赛博变体已部署。通过 4 个维度解剖你的真实游戏人格。敢来直面吃灰的游戏库和凌晨的连败记录，查收你的专属赛博病历吗？",
   keywords: [
     "SBTI",
     "游戏人格测试",
@@ -22,17 +22,17 @@ export const metadata: Metadata = {
   authors: [{ name: "lxchapu" }],
 
   openGraph: {
-    title: "P·L·A·Y 游戏人格诊断 | 查收你的赛博病历",
+    title: "P·L·A·Y 人格诊断终端 | 解剖你的玩家人格",
     description:
-      "在这个地下诊所，你的每次点击和破防都在出卖你。点击接入终端，剥开高端玩家的虚荣伪装。",
+      "在这个地下诊所，你的吃灰库存和深夜红温都在出卖你。点击接入终端，剥开高端玩家的虚荣伪装。",
     url: "https://play.lxchapu.com",
     siteName: "P·L·A·Y 诊断终端",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://play.lxchapu.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "P·L·A·Y 赛博共鸣诊断系统",
+        alt: "P·L·A·Y 人格诊断终端",
       },
     ],
     locale: "zh_CN",
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "P·L·A·Y 游戏人格诊断 | 查收你的赛博病历",
+    title: "P·L·A·Y 人格诊断终端 | 解剖你的玩家人格",
     description:
-      "虚伪的 MBTI 已经过时。敢来测算你的赛博劳役抗性与多巴胺受体吗？",
-    images: ["/og-image.jpg"],
+      "虚伪的 MBTI 社交已经过时。敢来测算你的赛博劳役抗性与多巴胺受体吗？",
+    images: ["https://play.lxchapu.com/og-image.jpg"],
   },
   robots: {
     index: true,
