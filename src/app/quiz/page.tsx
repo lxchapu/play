@@ -136,23 +136,11 @@ export default function QuizPage() {
     router.push(`/result?data=${encoded}`);
   };
 
-  // 退回首页 (强行切断链接)
-  const handleTerminate = () => {
-    // 增加确认框，带有赛博系统警告的口吻
-    if (
-      confirm(
-        "[SYS WARNING] 确定要强行切断神经链接吗？\n当前的诊断进度和尚未写入的人格映射将会丢失。",
-      )
-    ) {
-      router.replace("/");
-    }
-  };
-
   return (
     <>
       <div className="w-full max-w-300 mx-auto">
         <div className="pt-6 px-6 flex justify-between">
-          <TopBar onClick={handleTerminate} />
+          <TopBar />
           <GithubLink />
         </div>
       </div>
